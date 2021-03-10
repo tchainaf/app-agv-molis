@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "o//kspZE+P0moS9+tp6QrrWgX/UW4dc6jA/Hvo56nwg1xae4HczkXJPRHPPB/KkHR80DcfhM57QtJqc1K562bA==",
+  "success": true,
+  "projectFilePath": "D:\\dev\\app-agv-molis\\app-agv-molis\\app-agv-molis.iOS\\app-agv-molis.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Caroline Ribeiro\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\Caroline Ribeiro\\.nuget\\packages\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}

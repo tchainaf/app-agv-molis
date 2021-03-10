@@ -99,6 +99,8 @@
     -->
     <TabBar>
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+        <ShellContent Route="LoginFormPage" ContentTemplate="{DataTemplate local:LoginFormPage}" />
+        <ShellContent Route="SignupFormPage" ContentTemplate="{DataTemplate local:SignupFormPage}" />
     </TabBar>
 
     <!-- Optional Templates 

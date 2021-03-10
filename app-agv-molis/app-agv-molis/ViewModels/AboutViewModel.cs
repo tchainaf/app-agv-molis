@@ -9,7 +9,7 @@ namespace app_agv_molis.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = "Sobre";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
         }
 

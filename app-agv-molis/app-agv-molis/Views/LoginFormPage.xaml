@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Login"
+             x:Class="app_agv_molis.Views.LoginFormPage">
+    <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+        <Label Text="Email" FontSize="Medium" />
+        <Entry Text="{Binding Email, Mode=TwoWay}" FontSize="Medium" />
+        <Label Text="Senha" FontSize="Medium" />
+        <Editor Text="{Binding Senha, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Entrar" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
