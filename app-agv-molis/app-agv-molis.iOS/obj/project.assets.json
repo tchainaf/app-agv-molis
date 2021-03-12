@@ -136,12 +136,22 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.InputKit/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        }
+      },
       "app-agv-molis/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1451"
+          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.InputKit": "3.5.0"
         },
         "compile": {
           "bin/placeholder/app-agv-molis.dll": {}
@@ -286,12 +296,22 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.InputKit/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        }
+      },
       "app-agv-molis/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1451"
+          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.InputKit": "3.5.0"
         },
         "compile": {
           "bin/placeholder/app-agv-molis.dll": {}
@@ -436,12 +456,22 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.InputKit/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        }
+      },
       "app-agv-molis/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1451"
+          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.InputKit": "3.5.0"
         },
         "compile": {
           "bin/placeholder/app-agv-molis.dll": {}
@@ -586,12 +616,22 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Forms.InputKit/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.InputKit.dll": {}
+        }
+      },
       "app-agv-molis/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Xamarin.Essentials": "1.5.3.2",
-          "Xamarin.Forms": "4.8.0.1451"
+          "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.InputKit": "3.5.0"
         },
         "compile": {
           "bin/placeholder/app-agv-molis.dll": {}
@@ -967,6 +1007,28 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Forms.InputKit/3.5.0": {
+      "sha512": "3UZL0hCsVN/Oay0TUNwnLZ9nT5g0m/wcks95HB2/VkUuZG5QKkveBpW23eQyf3jXA5XSJtOa0yFKFfFm8k89dw==",
+      "type": "package",
+      "path": "xamarin.forms.inputkit/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/monoandroid10.0/Plugin.InputKit.dll",
+        "lib/monoandroid10.0/Plugin.InputKit.xml",
+        "lib/monoandroid90/Plugin.InputKit.dll",
+        "lib/monoandroid90/Plugin.InputKit.xml",
+        "lib/netstandard1.0/Plugin.InputKit.dll",
+        "lib/netstandard1.0/Plugin.InputKit.xml",
+        "lib/netstandard2.0/Plugin.InputKit.dll",
+        "lib/netstandard2.0/Plugin.InputKit.xml",
+        "lib/xamarinios10/Plugin.InputKit.dll",
+        "lib/xamarinios10/Plugin.InputKit.xml",
+        "xamarin.forms.inputkit.3.5.0.nupkg.sha512",
+        "xamarin.forms.inputkit.nuspec"
+      ]
+    },
     "app-agv-molis/1.0.0": {
       "type": "project",
       "path": "../app-agv-molis/app-agv-molis.csproj",
@@ -1044,5 +1106,20 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Downgrade de pacote detectado: Xamarin.Forms de 5.0.0.2012 para 4.8.0.1451. Referencie o pacote diretamente do projeto para selecionar uma versão diferente. \r\n app-agv-molis.iOS -> app-agv-molis -> Xamarin.Forms (>= 5.0.0.2012) \r\n app-agv-molis.iOS -> Xamarin.Forms (>= 4.8.0.1451)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

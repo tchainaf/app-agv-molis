@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app_agv_molis.Views;
+using System;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
@@ -37,10 +38,11 @@ namespace app_agv_molis.ViewModels
         public Command LoginCommand { get; }
         public Command CancelCommand { get; }
 
-        private async void OnCancel()
+        private void OnCancel()
         {
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            //await Shell.Current.GoToAsync("..");
+            //App.Current.MainPage = new NavigationPage(new LoginPage());
         }
 
         private async void OnLogin()

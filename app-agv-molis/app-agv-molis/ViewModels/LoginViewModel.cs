@@ -14,16 +14,16 @@ namespace app_agv_molis.ViewModels
             GoToSignupFormCommand = new Command(OnGoTosignupFormCommandClicked);
         }
 
-        private async void OnGoToLoginFormCommandClicked(object obj)
+        private void OnGoToLoginFormCommandClicked(object obj)
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(LoginFormPage)}");
+            //await Shell.Current.GoToAsync($"//{nameof(LoginFormPage)}");
+            App.Current.MainPage = new LoginFormPage();
         }
 
-        private async void OnGoTosignupFormCommandClicked(object obj)
+        private void OnGoTosignupFormCommandClicked(object obj)
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(SignupFormPage)}");
+            //await Shell.Current.GoToAsync($"//{nameof(SignupFormPage)}");
+            App.Current.MainPage = new SignupFormPage();
         }
     }
 }

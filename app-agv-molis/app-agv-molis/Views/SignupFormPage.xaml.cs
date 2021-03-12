@@ -1,4 +1,5 @@
 ﻿using app_agv_molis.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +13,11 @@ namespace app_agv_molis.Views
             InitializeComponent();
 
             this.BindingContext = new SignupFormViewModel();
+        }
+
+        public void CancelCommand(object sender, EventArgs args)
+        {
+            Application.Current.MainPage = new LoginPage();
         }
     }
 }

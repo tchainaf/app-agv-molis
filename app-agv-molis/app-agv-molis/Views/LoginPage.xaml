@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="app_agv_molis.Views.LoginPage">
+             x:Class="app_agv_molis.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+>
     <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-        <Button VerticalOptions="Center" Text="Login" Command="{Binding GoToLoginFormCommand}"/>
-        <Button VerticalOptions="Center" Text="Cadastro" Command="{Binding GoToSignupFormCommand}"/>
+        <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+            <Image Source="logo_agv_molis.png" Aspect="AspectFit" />
+        </ContentView>
+        <Button Text="LOGIN" VerticalOptions="Center" Command="{Binding GoToLoginFormCommand}" />
+        <Button Text="CADASTRO" VerticalOptions="Center" Command="{Binding GoToSignupFormCommand}" />
     </StackLayout>
 </ContentPage>

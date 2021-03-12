@@ -9,16 +9,22 @@ namespace app_agv_molis.ViewModels
     class SignupFormViewModel : BaseViewModel
     {
         public Command GoToSignupFormCommand { get; }
+        public Command CancelSignupFormCommand { get; }
 
         public SignupFormViewModel()
         {
             GoToSignupFormCommand = new Command(OnGoToSignupFormCommandClicked);
+            CancelSignupFormCommand = new Command(OnGoToSignupFormCommandClicked);
         }
 
         private async void OnGoToSignupFormCommandClicked(object obj)
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(SignupFormPage)}");
+            App.Current.MainPage = new SignupFormPage();
+        }
+
+        private async void CancelFormCommandClicked(object obj)
+        {
+            App.Current.MainPage = new SignupFormPage();
         }
     }
 }
