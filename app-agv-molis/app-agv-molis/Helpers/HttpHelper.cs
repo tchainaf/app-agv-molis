@@ -25,7 +25,7 @@ namespace app_agv_molis.Helpers
             {
                 using (var client = GetHttpClient())
                 {
-                    client.Timeout = new TimeSpan().TotalSeconds(5);
+                    client.Timeout = new TimeSpan(0, 0, 5);
                     HttpRequestMessage request = new HttpRequestMessage(method, MountApiUrl(api));
                     if (objectToSend != null)
                     {
@@ -39,7 +39,7 @@ namespace app_agv_molis.Helpers
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.InnerException);
-                throw ex;
+                return null;
             }
         }
 
