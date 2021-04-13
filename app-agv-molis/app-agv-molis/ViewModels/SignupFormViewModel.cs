@@ -10,11 +10,13 @@ namespace app_agv_molis.ViewModels
     {
         public Command GoToSignupFormCommand { get; }
         public Command CancelSignupFormCommand { get; }
+        public Command SaveNewUserCommand { get; }
 
         public SignupFormViewModel()
         {
             GoToSignupFormCommand = new Command(OnGoToSignupFormCommandClicked);
-            CancelSignupFormCommand = new Command(OnGoToSignupFormCommandClicked);
+            CancelSignupFormCommand = new Command(OnCancelFormCommandClicked);
+            SaveNewUserCommand = new Command(OnSaveNewUserCommandClicked);
         }
 
         private async void OnGoToSignupFormCommandClicked(object obj)
@@ -22,9 +24,14 @@ namespace app_agv_molis.ViewModels
             App.Current.MainPage = new SignupFormPage();
         }
 
-        private async void CancelFormCommandClicked(object obj)
+        private async void OnCancelFormCommandClicked(object obj)
         {
             App.Current.MainPage = new SignupFormPage();
+        }
+
+        private void OnSaveNewUserCommandClicked(object obj)
+        {
+            App.Current.MainPage = new LoginFormPage();
         }
     }
 }

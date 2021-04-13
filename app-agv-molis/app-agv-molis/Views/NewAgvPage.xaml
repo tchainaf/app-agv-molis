@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="app_agv_molis.Views.NewAgvPage">
-    <ContentView.Content>
+    <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <Label Text="Nome" FontSize="Medium" />
             <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
@@ -22,9 +22,9 @@
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cadastrar" Command="{Binding SaveNewAgvCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Salvar" Command="{Binding SaveNewAgvCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </StackLayout>
-    </ContentView.Content>
-</ContentView>
+    </ContentPage.Content>
+</ContentPage>

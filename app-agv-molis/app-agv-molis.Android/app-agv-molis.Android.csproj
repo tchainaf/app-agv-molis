@@ -95,12 +95,6 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\app-agv-molis\app-agv-molis.csproj">
-      <Project>{2B7884C6-6D36-4853-B173-9510352336A4}</Project>
-      <Name>app-agv-molis</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo_agv_molis.png" />
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,7 @@
         <Entry Text="{Binding Email, Mode=TwoWay}" FontSize="Medium" />
 
         <Label Text="Senha" FontSize="Medium" />
-        <Entry Text="{Binding Senha, Mode=TwoWay}" FontSize="Medium" />
+        <Entry Text="{Binding Senha, Mode=TwoWay}" FontSize="Medium" IsPassword="True" />
 
         <Label Text="Departamento" FontSize="Medium" />
         <Entry Text="{Binding Departamento, Mode=TwoWay}" FontSize="Medium" />

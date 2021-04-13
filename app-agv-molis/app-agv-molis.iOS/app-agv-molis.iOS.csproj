@@ -139,10 +139,4 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\app-agv-molis\app-agv-molis.csproj">
-      <Project>{2B7884C6-6D36-4853-B173-9510352336A4}</Project>
-      <Name>app-agv-molis</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

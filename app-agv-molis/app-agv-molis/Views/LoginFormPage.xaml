@@ -8,7 +8,7 @@
         <Label Text="Email" FontSize="Medium" />
         <Entry Text="{Binding Email, Mode=TwoWay}" FontSize="Medium" />
         <Label Text="Senha" FontSize="Medium" />
-        <Editor Text="{Binding Senha, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+        <Entry Text="{Binding Senha, Mode=TwoWay}" FontSize="Medium" Margin="0" IsPassword="True"/>
         <StackLayout Orientation="Horizontal">
             <Button Text="Entrar" Clicked="LoginCommand" HorizontalOptions="FillAndExpand"></Button>
             <Button Text="Cancelar" Clicked="CancelCommand" HorizontalOptions="FillAndExpand"></Button>
