@@ -13,7 +13,7 @@ namespace app_agv_molis
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<RfidApi>();
             MainPage = new LoginPage();
         }
 

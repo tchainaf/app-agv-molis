@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel<string>
     {
         public Command GoToLoginFormCommand { get; }
         public Command GoToSignupFormCommand { get; }

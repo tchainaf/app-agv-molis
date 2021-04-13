@@ -1,16 +1,16 @@
-﻿using app_agv_molis.Models;
-using app_agv_molis.Services;
+﻿using app_agv_molis.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel<T> : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IHttpApi<T> api => DependencyService.Get<IHttpApi<T>>();
 
         bool isBusy = false;
         public bool IsBusy

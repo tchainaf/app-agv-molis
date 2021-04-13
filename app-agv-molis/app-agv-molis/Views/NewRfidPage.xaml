@@ -3,14 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="app_agv_molis.Views.NewRfidPage">
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Nome" FontSize="Medium" />
-            <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Id do helix" FontSize="Medium" />
-            <Editor Text="{Binding HelixId, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+        <StackLayout Padding="20">
+
+            <StackLayout>
+                <Label Text="Nome" FontSize="Medium" />
+                <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
+            </StackLayout>
+
+            <StackLayout Padding="0,10,0,10"> 
+                <Label Text="Id do Helix" FontSize="Medium" />
+                <Picker x:Name="RfidPicker" 
+                    FontSize="Large"
+                    Title="Selecione o id do Helix"
+                    ItemsSource="{Binding HelixIds}"
+                    SelectedItem="{Binding SelectedHelixId, Mode=TwoWay}"
+                />
+            </StackLayout>
+            
             <StackLayout Orientation="Horizontal">
                 <Button Text="Salvar" Command="{Binding SaveRfidCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Cancelar" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

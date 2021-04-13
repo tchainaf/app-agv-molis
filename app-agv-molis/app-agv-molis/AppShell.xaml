@@ -83,10 +83,6 @@
                       IsTabStop="False"
                       ContentTemplate="{DataTemplate local:RfidPage}" 
                       Route="RfidPage"/>
-        <ShellContent Title="Zonas" 
-                      IsTabStop="False"
-                      ContentTemplate="{DataTemplate local:ItemsPage}" 
-                      Route="ItemsPage"/>
     </FlyoutItem>
 
     <ShellItem Route="login">

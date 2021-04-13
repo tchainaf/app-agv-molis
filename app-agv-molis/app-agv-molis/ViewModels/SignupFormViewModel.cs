@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
 {
-    class SignupFormViewModel : BaseViewModel
+    class SignupFormViewModel : BaseViewModel<string>
     {
         public Command GoToSignupFormCommand { get; }
         public Command CancelSignupFormCommand { get; }

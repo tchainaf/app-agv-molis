@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
 {
-    public class LoginFormViewModel : BaseViewModel
+    public class LoginFormViewModel: BaseViewModel<string>
     {
         private string email;
         private string password;

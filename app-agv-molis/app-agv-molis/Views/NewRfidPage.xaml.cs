@@ -1,10 +1,5 @@
-﻿using app_agv_molis.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using app_agv_molis.Models;
+using app_agv_molis.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,10 +8,26 @@ namespace app_agv_molis.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewRfidPage : ContentPage
     {
+        NewRfidViewModel _viewModel;
+
         public NewRfidPage()
         {
             InitializeComponent();
-            this.BindingContext = new NewRfidViewModel();
+            this.BindingContext = _viewModel = new NewRfidViewModel();
+            Title = "Novo Rfid";
+        }
+
+        public async void ShowDisplay(string title, string message, string buttonText = null)
+        {
+            await DisplayAlert(title, message, buttonText);
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
+            await _viewModel.ExecuteLoadHelixIdsCommand();
+            RfidPicker.ItemsSource = _viewModel.HelixIds;
         }
     }
 }

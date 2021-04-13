@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using app_agv_molis.Models;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
 {
-    public class NewAgvViewModel : BaseViewModel
+    class NewAgvViewModel : BaseViewModel<Agv>
     {
         private string name;
         private string helixIdSelected;
