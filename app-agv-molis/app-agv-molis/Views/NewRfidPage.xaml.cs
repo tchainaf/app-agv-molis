@@ -1,5 +1,4 @@
-﻿using app_agv_molis.Models;
-using app_agv_molis.ViewModels;
+﻿using app_agv_molis.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,11 +14,6 @@ namespace app_agv_molis.Views
             InitializeComponent();
             this.BindingContext = _viewModel = new NewRfidViewModel();
             Title = "Novo Rfid";
-        }
-
-        public async void ShowDisplay(string title, string message, string buttonText = null)
-        {
-            await DisplayAlert(title, message, buttonText);
         }
 
         protected override async void OnAppearing()

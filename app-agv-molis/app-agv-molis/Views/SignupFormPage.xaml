@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
     Title="Cadastro"
              Shell.NavBarIsVisible="False"
     x:Class="app_agv_molis.Views.SignupFormPage">
@@ -20,11 +19,6 @@
         <Entry Text="{Binding Departamento, Mode=TwoWay}" FontSize="Medium" />
 
         <StackLayout Padding="0,10,0,15">
-            <Label Text="Tipo do usuário" />
-            <input:RadioButtonGroupView>
-                <input:RadioButton Text="Comum" IsChecked="true" />
-                <input:RadioButton Text="Admin" />
-            </input:RadioButtonGroupView>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">

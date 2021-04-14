@@ -1,13 +1,9 @@
 ﻿using app_agv_molis.Models;
 using app_agv_molis.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Net;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -20,10 +16,21 @@ namespace app_agv_molis.ViewModels
         private string helixId;
 
         private string _selectedItem;
+        public string Name
+        {
+            get => name;
+            set => SetProperty(ref name, value);
+        }
+
+        public string HelixId
+        {
+            get => helixId;
+            set => SetProperty(ref helixId, value);
+        }
 
         public ObservableCollection<string> HelixIds { get; }
-
-        public Command LoadHelixIdsCommand { get; }
+        public Command SaveRfidCommand { get; }
+        public Command CancelCommand { get; }
 
         public NewRfidViewModel()
         {
@@ -57,37 +64,19 @@ namespace app_agv_molis.ViewModels
                 IsBusy = false;
             }
         }
-
-        public string Name
-        {
-            get => name;
-            set => SetProperty(ref name, value);
-        }
-
-        public string HelixId
-        {
-            get => helixId;
-            set => SetProperty(ref helixId, value);
-        }
-
-        public Command SaveRfidCommand { get; }
-        public Command CancelCommand { get; }
-
         private async void OnCancel()
         {
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
 
-        private async Task<bool> OnSave()
+        private async void OnSave()
         {
             var res = await api.AddItemAsync(new Rfid(Name, SelectedHelixId));
             if (res.StatusCode == HttpStatusCode.Created)
             {
                 await Shell.Current.GoToAsync("..");
-                return true;
             }
-            return false;
         }
 
         public string SelectedHelixId
