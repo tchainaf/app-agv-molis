@@ -1,13 +1,20 @@
 package mono;
 public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
-		/* We need to ensure that "app-agv-molis.Android.dll" comes first in this list. */
-		"app-agv-molis.Android.dll",
+		/* We need to ensure that "app_agv_molis.Android.dll" comes first in this list. */
+		"app_agv_molis.Android.dll",
 		"app-agv-molis.dll",
 		"FormsViewGroup.dll",
 		"Microsoft.Bcl.AsyncInterfaces.dll",
 		"Newtonsoft.Json.dll",
+		"PCLExt.FileStorage.Abstractions.dll",
+		"PCLExt.FileStorage.dll",
 		"Plugin.InputKit.dll",
+		"SQLite-net.dll",
+		"SQLitePCLRaw.batteries_v2.dll",
+		"SQLitePCLRaw.core.dll",
+		"SQLitePCLRaw.lib.e_sqlite3.android.dll",
+		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"System.Text.Encodings.Web.dll",
 		"System.Text.Json.dll",
 		"Xamarin.AndroidX.Activity.dll",
@@ -31,7 +38,6 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Interpolator.dll",
 		"Xamarin.AndroidX.Legacy.Support.Core.UI.dll",
 		"Xamarin.AndroidX.Legacy.Support.Core.Utils.dll",
-		"Xamarin.AndroidX.Legacy.Support.V4.dll",
 		"Xamarin.AndroidX.Lifecycle.Common.dll",
 		"Xamarin.AndroidX.Lifecycle.LiveData.Core.dll",
 		"Xamarin.AndroidX.Lifecycle.LiveData.dll",
@@ -41,7 +47,6 @@ public class MonoPackageManager_Resources {
 		"Xamarin.AndroidX.Loader.dll",
 		"Xamarin.AndroidX.LocalBroadcastManager.dll",
 		"Xamarin.AndroidX.Media.dll",
-		"Xamarin.AndroidX.MultiDex.dll",
 		"Xamarin.AndroidX.Print.dll",
 		"Xamarin.AndroidX.RecyclerView.dll",
 		"Xamarin.AndroidX.SavedState.dll",

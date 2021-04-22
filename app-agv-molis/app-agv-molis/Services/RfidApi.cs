@@ -2,6 +2,7 @@
 using app_agv_molis.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -9,7 +10,8 @@ namespace app_agv_molis.Services
 {
     public class RfidApi : IHttpApi<Rfid>
     {
-        private const string API_BASE_URL = "http://10.0.2.2:3333/rfid";
+        //private const string API_BASE_URL = "http://10.0.2.2:3333/rfid";
+        private const string API_BASE_URL = "http://192.168.1.104:3333/rfid";
         public RfidApi()
         {
             HttpHelper.SetApiUrl(API_BASE_URL);
@@ -17,7 +19,7 @@ namespace app_agv_molis.Services
 
         public async Task<HttpResponseMessage> AddItemAsync(Rfid item)
         {
-            return await HttpHelper.PostAsync<Rfid>(item);
+            return await HttpHelper.PostAsync<Rfid>(item, null);
         }
 
         public Task<HttpResponseMessage> DeleteItemAsync(string id)
@@ -39,12 +41,17 @@ namespace app_agv_molis.Services
             throw new NotImplementedException();
         }
 
-        async Task<IEnumerable<string>> IHttpApi<Rfid>.GetAllFromHelixAsync()
+        Task<HttpResponseMessage> IHttpApi<Rfid>.UpdateItemAsync(Rfid item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<string>> GetAllFromHelixAsync()
         {
             return await HttpHelper.GetAllAsync<string>("/helix");
         }
 
-        Task<HttpResponseMessage> IHttpApi<Rfid>.UpdateItemAsync(Rfid item)
+        public Task LoginAsync(object userLogin)
         {
             throw new NotImplementedException();
         }

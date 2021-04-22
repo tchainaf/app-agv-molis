@@ -14,6 +14,7 @@ namespace app_agv_molis
             InitializeComponent();
 
             DependencyService.Register<RfidApi>();
+            DependencyService.Register<UserApi>();
             MainPage = new LoginPage();
         }
 

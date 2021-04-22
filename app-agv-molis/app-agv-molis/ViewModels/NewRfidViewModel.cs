@@ -1,5 +1,7 @@
 ﻿using app_agv_molis.Models;
 using app_agv_molis.Services;
+using app_agv_molis.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -76,6 +78,11 @@ namespace app_agv_molis.ViewModels
             if (res.StatusCode == HttpStatusCode.Created)
             {
                 await Shell.Current.GoToAsync("..");
+            } 
+            else
+            {
+                var a = JsonConvert.DeserializeObject<string>((JsonConvert.DeserializeObject(res.Content.ReadAsStringAsync().Result.ToString())).ToString());
+                MessagingCenter.Send<NewRfidPage, string>(new NewRfidPage(), "erro", a);
             }
         }
 

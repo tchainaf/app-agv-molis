@@ -87,3 +87,6 @@ Xamarin.Forms.Platform.Android.dll
 Xamarin.Forms.Platform.dll
 Xamarin.Google.Android.Material.dll
 Xamarin.Google.Guava.ListenableFuture.dll
+PCLExt.FileStorage.dll
+SQLitePCLRaw.lib.e_sqlite3.android.dll
+app-agv-molis.dll

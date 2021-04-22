@@ -1,26 +1,20 @@
-﻿using app_agv_molis.Views;
+﻿using app_agv_molis.Models;
+using app_agv_molis.Views;
 using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
 {
-    public class LoginFormViewModel: BaseViewModel<string>
+    class LoginFormViewModel: BaseViewModel<User>
     {
         private string email;
         private string password;
 
         public LoginFormViewModel()
         {
-            LoginCommand = new Command(OnLogin, ValidateLogin);
             CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => LoginCommand.ChangeCanExecute();
-        }
-
-        private bool ValidateLogin()
-        {
-            return !String.IsNullOrWhiteSpace(email)
-                && !String.IsNullOrWhiteSpace(password);
         }
 
         public string Email
@@ -35,7 +29,6 @@ namespace app_agv_molis.ViewModels
             set => SetProperty(ref password, value);
         }
 
-        public Command LoginCommand { get; }
         public Command CancelCommand { get; }
 
         private void OnCancel()
@@ -45,14 +38,23 @@ namespace app_agv_molis.ViewModels
             //App.Current.MainPage = new NavigationPage(new LoginPage());
         }
 
-        private async void OnLogin()
+        public async Task ExecuteLoginCommand()
         {
-            Console.WriteLine("CHAMA A API");
-            Console.WriteLine(email);
-            Console.WriteLine(password);
-
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            IsBusy = true; 
+            try
+            {
+                await api.LoginAsync(new UserLogin(Email, Password));
+                Application.Current.MainPage = new AppShell();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessagingCenter.Send<LoginFormPage, string>(new LoginFormPage(), "ErroLogin", "Erro nas credenciais");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

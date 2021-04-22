@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace app_agv_molis.Helpers
@@ -14,10 +16,11 @@ namespace app_agv_molis.Helpers
     {
         private static HttpClient _httpClient;
         private static string _apiUrl;
-        private static JsonSerializerOptions serializerOptions;
+        private static JsonSerializerOptions _serializerOptions;
+        private static string _token;
         private static HttpClient GetHttpClient()
         {
-            serializerOptions = new JsonSerializerOptions
+            _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true
@@ -33,13 +36,20 @@ namespace app_agv_molis.Helpers
             try
             {
                 var client = GetHttpClient();
+                _token = await SecureStorage.GetAsync("token");
+                if (_token != null)
+                {
+                    var authHeader = new AuthenticationHeaderValue("bearer", _token);
+                    client.DefaultRequestHeaders.Authorization = authHeader;
+                }
+
                 Uri uri = new Uri(string.Format(MountApiUrl(api), string.Empty));
 
-                string json = JsonSerializer.Serialize((T)objectToSend, serializerOptions);
+                string json = JsonSerializer.Serialize((T)objectToSend, _serializerOptions);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 return await client.PostAsync(uri, content);
-            } 
+            }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.InnerException);
@@ -52,12 +62,19 @@ namespace app_agv_molis.Helpers
             try
             {
                 var client = GetHttpClient();
+
+                if (_token != null)
+                {
+                    var authHeader = new AuthenticationHeaderValue("bearer", _token);
+                    client.DefaultRequestHeaders.Authorization = authHeader;
+                }
+
                 Uri uri = new Uri(string.Format(MountApiUrl(api), string.Empty));
                 HttpResponseMessage response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<List<T>>(content, serializerOptions);
+                    return JsonSerializer.Deserialize<List<T>>(content, _serializerOptions);
                 }
                 return new List<T>();
             }
@@ -73,7 +90,8 @@ namespace app_agv_molis.Helpers
             if (api == null)
             {
                 return _apiUrl;
-            } else
+            }
+            else
             {
                 return _apiUrl + api;
             }

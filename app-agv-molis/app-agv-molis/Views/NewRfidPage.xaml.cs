@@ -14,6 +14,11 @@ namespace app_agv_molis.Views
             InitializeComponent();
             this.BindingContext = _viewModel = new NewRfidViewModel();
             Title = "Novo Rfid";
+
+            MessagingCenter.Subscribe<NewRfidPage, string>(this, "erro", async (sender, arg) =>
+            {
+                await DisplayAlert("Deu ruim", "arg=" + arg, "OK");
+            });
         }
 
         protected override async void OnAppearing()

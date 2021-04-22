@@ -1,5 +1,8 @@
 using Android.App;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-[assembly: Application(UsesCleartextTraffic = true)]
+#if DEBUG
+[assembly: Application(Debuggable = true, UsesCleartextTraffic = true)]
+#else
+[assembly: Application(Debuggable=false, UsesCleartextTraffic = true)]
+#endif

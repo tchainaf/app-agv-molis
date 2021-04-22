@@ -14,7 +14,7 @@ namespace app_agv_molis.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\NewAgvPage.xaml")]
-    public partial class NewAgvPage : global::Xamarin.Forms.ContentView {
+    public partial class NewAgvPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
