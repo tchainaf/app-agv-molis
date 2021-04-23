@@ -12,11 +12,6 @@ namespace app_agv_molis.ViewModels
         private string email;
         private string password;
 
-        public LoginFormViewModel()
-        {
-            CancelCommand = new Command(OnCancel);
-        }
-
         public string Email
         {
             get => email;
@@ -27,15 +22,6 @@ namespace app_agv_molis.ViewModels
         {
             get => password;
             set => SetProperty(ref password, value);
-        }
-
-        public Command CancelCommand { get; }
-
-        private void OnCancel()
-        {
-            // This will pop the current page off the navigation stack
-            //await Shell.Current.GoToAsync("..");
-            //App.Current.MainPage = new NavigationPage(new LoginPage());
         }
 
         public async Task ExecuteLoginCommand()

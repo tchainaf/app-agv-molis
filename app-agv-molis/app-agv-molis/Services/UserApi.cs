@@ -2,10 +2,7 @@
 using app_agv_molis.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
@@ -13,12 +10,6 @@ namespace app_agv_molis.Services
 {
     class UserApi : IHttpApi<User>
     {
-        private const string API_BASE_URL = "http://7a0780ee90c7.ngrok.io";
-        public UserApi()
-        {
-            HttpHelper.SetApiUrl(API_BASE_URL);
-        }
-
         public Task<HttpResponseMessage> AddItemAsync(User item)
         {
             throw new NotImplementedException();
@@ -34,9 +25,9 @@ namespace app_agv_molis.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<User>> GetAllItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<User>> GetAllItemsAsync(bool forceRefresh = false)
         {
-            throw new NotImplementedException();
+            return await HttpHelper.GetAllAsync<User>("/users");
         }
 
         public Task<User> GetItemAsync(string id)

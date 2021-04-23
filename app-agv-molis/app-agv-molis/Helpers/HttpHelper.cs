@@ -15,11 +15,12 @@ namespace app_agv_molis.Helpers
     public static class HttpHelper
     {
         private static HttpClient _httpClient;
-        private static string _apiUrl;
+        private static string _apiUrl = "http://191.234.169.132:3333";
         private static JsonSerializerOptions _serializerOptions;
         private static string _token;
         private static HttpClient GetHttpClient()
         {
+            //_apiUrl = "http://74cf41d54d8f.ngrok.io";
             _serializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -95,11 +96,6 @@ namespace app_agv_molis.Helpers
             {
                 return _apiUrl + api;
             }
-        }
-
-        internal static void SetApiUrl(string apiUrl)
-        {
-            _apiUrl = apiUrl;
         }
 
         internal static async Task<T> GetContentFromResultAsync<T>(HttpResponseMessage result)

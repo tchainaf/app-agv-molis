@@ -10,13 +10,6 @@ namespace app_agv_molis.Services
 {
     public class RfidApi : IHttpApi<Rfid>
     {
-        //private const string API_BASE_URL = "http://10.0.2.2:3333/rfid";
-        private const string API_BASE_URL = "http://192.168.1.104:3333/rfid";
-        public RfidApi()
-        {
-            HttpHelper.SetApiUrl(API_BASE_URL);
-        }
-
         public async Task<HttpResponseMessage> AddItemAsync(Rfid item)
         {
             return await HttpHelper.PostAsync<Rfid>(item, null);
