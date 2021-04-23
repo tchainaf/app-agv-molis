@@ -52,8 +52,8 @@ namespace app_agv_molis.Services
         public async Task LoginAsync(object userLogin)
         {
             var result = await HttpHelper.PostAsync<object>(userLogin, "/login");
-            var token = await HttpHelper.GetContentFromResultAsync<string>(result);
-            await SecureStorage.SetAsync("token", token);
+            var response = await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);
+            await SecureStorage.SetAsync("token", response.Token);
         }
     }
 }

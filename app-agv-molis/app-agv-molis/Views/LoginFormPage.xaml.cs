@@ -17,11 +17,6 @@ namespace app_agv_molis.Views
             {
                 await DisplayAlert("Deu ruim", arg, "OK");
             });
-
-            //MessagingCenter.Subscribe<LoginFormPage>(this, "SucessoNoLogin", async (sender) =>
-            //{
-            //    Application.Current.MainPage = new DashPage();
-            //});
         }
 
         public void CancelCommand(object sender, EventArgs args)
