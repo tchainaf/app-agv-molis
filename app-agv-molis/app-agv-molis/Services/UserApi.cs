@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace app_agv_molis.Services
 {
     class UserApi : IHttpApi<User>
     {
+
         public Task<HttpResponseMessage> AddItemAsync(User item)
         {
             throw new NotImplementedException();
@@ -40,11 +40,10 @@ namespace app_agv_molis.Services
             throw new NotImplementedException();
         }
 
-        public async Task LoginAsync(object userLogin)
+        public async Task<UserLoginResponse> LoginAsync(UserLogin userLogin)
         {
             var result = await HttpHelper.PostAsync<object>(userLogin, "/login");
-            var response = await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);
-            await SecureStorage.SetAsync("token", response.Token);
+            return await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);            
         }
     }
 }

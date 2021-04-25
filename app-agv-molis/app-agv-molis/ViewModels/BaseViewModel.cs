@@ -11,6 +11,7 @@ namespace app_agv_molis.ViewModels
     public class BaseViewModel<T> : INotifyPropertyChanged
     {
         public IHttpApi<T> api => DependencyService.Get<IHttpApi<T>>();
+        public IHelix<T> apiHelix => DependencyService.Get<IHelix<T>>();
 
         bool isBusy = false;
         public bool IsBusy

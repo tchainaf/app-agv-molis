@@ -38,13 +38,13 @@
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
                     TextColor="Black"
-                    Text="Caroline RIbeiro"/>
+                    Text="{Binding UserName, Mode=TwoWay}" />
                 <Label
                     HorizontalTextAlignment="Start"
                     FontSize="Micro"
                     VerticalTextAlignment="Center"
                     TextColor="Black"
-                    Text="ADMIN"/>
+                    Text="{Binding UserRole, Mode=TwoWay}" />
 
             </StackLayout>
         </Grid>

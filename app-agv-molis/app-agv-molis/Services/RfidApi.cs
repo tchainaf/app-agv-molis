@@ -2,13 +2,12 @@
 using app_agv_molis.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace app_agv_molis.Services
 {
-    public class RfidApi : IHttpApi<Rfid>
+    public class RfidApi : IHttpApi<Rfid>, IHelix<Rfid>
     {
         public async Task<HttpResponseMessage> AddItemAsync(Rfid item)
         {
@@ -42,11 +41,6 @@ namespace app_agv_molis.Services
         public async Task<IEnumerable<string>> GetAllFromHelixAsync()
         {
             return await HttpHelper.GetAllAsync<string>("/helix");
-        }
-
-        public Task LoginAsync(object userLogin)
-        {
-            throw new NotImplementedException();
         }
     }
 }

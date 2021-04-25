@@ -1,8 +1,11 @@
-﻿using app_agv_molis.Models;
+﻿using app_agv_molis.Helpers;
+using app_agv_molis.Models;
+using app_agv_molis.Services;
 using app_agv_molis.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
@@ -11,6 +14,8 @@ namespace app_agv_molis.ViewModels
     {
         private string email;
         private string password;
+        private UserApi _apiUser = new UserApi();
+        private SqliteHelper<User> _sqliteHelper = new SqliteHelper<User>();
 
         public string Email
         {
@@ -29,7 +34,10 @@ namespace app_agv_molis.ViewModels
             IsBusy = true; 
             try
             {
-                await api.LoginAsync(new UserLogin(Email, Password));
+                var response = await _apiUser.LoginAsync(new UserLogin(Email, Password));
+                await SecureStorage.SetAsync("token", response.Token);
+                await SecureStorage.SetAsync("userId", response.User.Id);
+                await _sqliteHelper.Insert(response.User);
                 Application.Current.MainPage = new AppShell();
             }
             catch (Exception ex)

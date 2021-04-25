@@ -48,7 +48,7 @@ namespace app_agv_molis.ViewModels
             try
             {
                 HelixIds.Clear();
-                var items = await api.GetAllFromHelixAsync();
+                var items = await apiHelix.GetAllFromHelixAsync();
                 
                 Debug.WriteLine(items);
 

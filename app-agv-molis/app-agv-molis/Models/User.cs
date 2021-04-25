@@ -3,7 +3,7 @@ using System;
 
 namespace app_agv_molis.Models
 {
-    class User
+    public class User
     {
         private string id;
         private string name;
@@ -11,6 +11,10 @@ namespace app_agv_molis.Models
         private RoleEnum role;
         private string email;
         private string salt;
+
+        public User()
+        {
+        }
 
         public User(string id, string name, string department, RoleEnum role, string email, string salt)
         {
@@ -71,29 +75,16 @@ namespace app_agv_molis.Models
             }
         }
 
-        RoleEnum GetRoleEnumBy(string roleName)
+        public RoleEnum GetRoleEnumBy(int roleNumber)
         {
-            switch (roleName)
+            switch (roleNumber)
             {
-                case "ADMIN":
+                case 0:
                     return RoleEnum.ADMIN;
-                case "COMMON":
+                case 1:
                     return RoleEnum.COMMON;
                 default:
                     throw new Exception("Role inválido");
-            }
-        }
-
-        string GetRoleNameBy(RoleEnum role)
-        {
-            switch (role)
-            {
-                case RoleEnum.ADMIN:
-                    return RoleEnum.ADMIN.GetType().Name;
-                case RoleEnum.COMMON:
-                    return RoleEnum.COMMON.GetType().Name;
-                default:
-                    throw new Exception("Role name inválido");
             }
         }
 

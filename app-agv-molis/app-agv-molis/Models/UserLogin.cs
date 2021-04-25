@@ -1,6 +1,6 @@
 ﻿namespace app_agv_molis.Models
 {
-    class UserLogin
+    public class UserLogin
     {
         private string email;
         private string password;
