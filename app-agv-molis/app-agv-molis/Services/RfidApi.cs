@@ -11,7 +11,7 @@ namespace app_agv_molis.Services
     {
         public async Task<HttpResponseMessage> AddItemAsync(Rfid item)
         {
-            return await HttpHelper.PostAsync<Rfid>(item, null);
+            return await HttpHelper.PostAsync<Rfid>(item, "/rfid");
         }
 
         public Task<HttpResponseMessage> DeleteItemAsync(string id)
@@ -40,7 +40,7 @@ namespace app_agv_molis.Services
 
         public async Task<IEnumerable<string>> GetAllFromHelixAsync()
         {
-            return await HttpHelper.GetAllAsync<string>("/helix");
+            return await HttpHelper.GetAllAsync<string>("/rfid/helix");
         }
     }
 }

@@ -13,11 +13,10 @@ namespace app_agv_molis.ViewModels
 {
     class NewRfidViewModel : BaseViewModel<Rfid>
     {
-        private string name;
-        
+        private string name;        
         private string helixId;
-
         private string _selectedItem;
+        private RfidApi _api = new RfidApi();
         public string Name
         {
             get => name;
@@ -48,7 +47,7 @@ namespace app_agv_molis.ViewModels
             try
             {
                 HelixIds.Clear();
-                var items = await apiHelix.GetAllFromHelixAsync();
+                var items = await _api.GetAllFromHelixAsync();
                 
                 Debug.WriteLine(items);
 
@@ -74,7 +73,7 @@ namespace app_agv_molis.ViewModels
 
         private async void OnSave()
         {
-            var res = await api.AddItemAsync(new Rfid(Name, SelectedHelixId));
+            var res = await _api.AddItemAsync(new Rfid(Name, SelectedHelixId));
             if (res.StatusCode == HttpStatusCode.Created)
             {
                 await Shell.Current.GoToAsync("..");
