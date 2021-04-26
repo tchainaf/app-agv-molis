@@ -24,7 +24,7 @@
             IsVisible="{Binding IsBusy}"
             IsRunning="{Binding IsBusy}"
             Color="{StaticResource Primary}"
-            Background="#000"
+            Background="#fff"
             Opacity="0.7"
         />
     </AbsoluteLayout>

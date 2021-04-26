@@ -21,6 +21,10 @@ namespace app_agv_molis.Models
             this.HelixId = helixId;
         }
 
+        public Rfid()
+        {
+        }
+
         public string Id
         {
             get => id;

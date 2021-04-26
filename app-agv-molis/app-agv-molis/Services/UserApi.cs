@@ -2,6 +2,7 @@
 using app_agv_molis.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -42,8 +43,15 @@ namespace app_agv_molis.Services
 
         public async Task<UserLoginResponse> LoginAsync(UserLogin userLogin)
         {
-            var result = await HttpHelper.PostAsync<object>(userLogin, "/login");
-            return await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);            
+            try
+            {
+                var result = await HttpHelper.PostAsync<object>(userLogin, "/login");
+                return await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);            
+            } catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw ex;
+            }
         }
     }
 }

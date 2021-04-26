@@ -34,7 +34,7 @@ namespace app_agv_molis.ViewModels
             IsBusy = true; 
             try
             {
-                var response = await _apiUser.LoginAsync(new UserLogin(Email, Password));
+                var response = await _apiUser.LoginAsync(new UserLogin(Email.Trim(), Password));
                 await SecureStorage.SetAsync("token", response.Token);
                 await SecureStorage.SetAsync("userId", response.User.Id);
                 await _sqliteHelper.Insert(response.User);
@@ -43,7 +43,7 @@ namespace app_agv_molis.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                MessagingCenter.Send<LoginFormPage, string>(new LoginFormPage(), "ErroLogin", "Erro nas credenciais");
+                MessagingCenter.Send<LoginFormPage, string>(new LoginFormPage(), "ErroLogin", new ErrorResponse().GetErrorMessage(ex.Message));
             }
             finally
             {

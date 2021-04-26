@@ -7,10 +7,18 @@ namespace app_agv_molis.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RfidPage : ContentPage
     {
+        RfidViewModel _viewModel;
         public RfidPage()
         {
             InitializeComponent();
-            this.BindingContext = new RfidViewModel();
+            this.BindingContext = _viewModel = new RfidViewModel();
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
+            await _viewModel.ExecuteLoadRfidsCommand();
+            RfidView.ItemsSource = _viewModel.RfidsList;
         }
     }
 }

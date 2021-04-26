@@ -1,4 +1,6 @@
-﻿namespace app_agv_molis.Models
+﻿using Newtonsoft.Json;
+
+namespace app_agv_molis.Models
 {
     public class UserLogin
     {
@@ -11,7 +13,9 @@
             this.password = password;
         }
 
+        [JsonProperty("email")]
         public string Email { get => email; set => email = value; }
+        [JsonProperty("password")]
         public string Password { get => password; set => password = value; }
     }
 }

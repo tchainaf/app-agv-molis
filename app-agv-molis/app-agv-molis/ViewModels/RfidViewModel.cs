@@ -16,30 +16,28 @@ namespace app_agv_molis.ViewModels
 
         private RfidApi _api = new RfidApi();
 
-        public ObservableCollection<Rfid> Rfids { get; }
-        public Command LoadRfidsCommand { get; }
+        public ObservableCollection<Rfid> RfidsList { get; }
         public Command AddRfidCommand { get; }
         public Command<Rfid> RfidTapped { get; }
 
         public RfidViewModel()
         {
-            Rfids = new ObservableCollection<Rfid>();
-            LoadRfidsCommand = new Command(async () => await ExecuteLoadRfidsCommand());
+            RfidsList = new ObservableCollection<Rfid>();
             RfidTapped = new Command<Rfid>(OnRfidSelected);
             AddRfidCommand = new Command(OnAddRfid);
         }
 
-        async Task ExecuteLoadRfidsCommand()
+        public async Task ExecuteLoadRfidsCommand()
         {
             IsBusy = true;
 
             try
             {
-                Rfids.Clear();
+                RfidsList.Clear();
                 var items = await _api.GetAllItemsAsync();
                 foreach (var item in items)
                 {
-                    Rfids.Add(item);
+                    RfidsList.Add(item);
                 }
             }
             catch (Exception ex)

@@ -43,14 +43,10 @@ namespace app_agv_molis.ViewModels
         public async Task ExecuteLoadHelixIdsCommand()
         {
             IsBusy = true;
-
             try
             {
                 HelixIds.Clear();
                 var items = await _api.GetAllFromHelixAsync();
-                
-                Debug.WriteLine(items);
-
                 foreach (var item in items)
                 {
                     HelixIds.Add(item);
@@ -59,6 +55,7 @@ namespace app_agv_molis.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+                MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "ErroAoBuscarHelixIds");
             }
             finally
             {
@@ -67,21 +64,34 @@ namespace app_agv_molis.ViewModels
         }
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
 
         private async void OnSave()
         {
-            var res = await _api.AddItemAsync(new Rfid(Name, SelectedHelixId));
-            if (res.StatusCode == HttpStatusCode.Created)
+            IsBusy = true;
+            try
             {
-                await Shell.Current.GoToAsync("..");
+                var res = await _api.AddItemAsync(new Rfid(Name, SelectedHelixId));
+
+                if (res.StatusCode == HttpStatusCode.Created)
+                {
+                    MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "SucessoAoCriar");
+                    await Shell.Current.GoToAsync("..");
+                }
+                else
+                {
+                    MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "ErroAoCriar");
+                }
             } 
-            else
+            catch (Exception ex)
             {
-                var a = JsonConvert.DeserializeObject<string>((JsonConvert.DeserializeObject(res.Content.ReadAsStringAsync().Result.ToString())).ToString());
-                MessagingCenter.Send<NewRfidPage, string>(new NewRfidPage(), "erro", a);
+                Debug.WriteLine(ex);
+                MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "ErroAoCriar");
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 

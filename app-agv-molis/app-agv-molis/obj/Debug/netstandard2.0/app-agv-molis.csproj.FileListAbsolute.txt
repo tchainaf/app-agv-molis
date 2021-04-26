@@ -36,7 +36,6 @@ D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\LoginFormPage.xaml.g.cs
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\NewAgvPage.xaml.g.cs
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\NewRfidPage.xaml.g.cs
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\RfidPage.xaml.g.cs
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\Views\SignupFormPage.xaml.g.cs

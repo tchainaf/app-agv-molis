@@ -14,10 +14,17 @@ namespace app_agv_molis.Views
             InitializeComponent();
             this.BindingContext = _viewModel = new NewRfidViewModel();
             Title = "Novo Rfid";
-
-            MessagingCenter.Subscribe<NewRfidPage, string>(this, "erro", async (sender, arg) =>
+            MessagingCenter.Subscribe<NewRfidPage>(this, "SucessoAoCriar", async (sender) =>
             {
-                await DisplayAlert("Deu ruim", "arg=" + arg, "OK");
+                await DisplayAlert("Uhuul", "RFID criado com sucesso!", "OK");
+            });
+            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoCriar", async (sender, arg) =>
+            {
+                await DisplayAlert("Alguma coisa ruim aconteceu", "arg=" + arg, "OK");
+            });
+            MessagingCenter.Subscribe<NewRfidPage>(this, "ErroAoBuscarHelixIds", async (sender) =>
+            {
+                await DisplayAlert("Alguma coisa ruim aconteceu", "Erro ao buscar os ids do Helix", "OK");
             });
         }
 

@@ -1,3 +1,4 @@
+using app_agv_molis.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -5,10 +6,8 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace app_agv_molis.Helpers
 {
@@ -16,18 +15,11 @@ namespace app_agv_molis.Helpers
     {
         private static HttpClient _httpClient;
         private static string _apiUrl;
-        private static JsonSerializerOptions _serializerOptions;
         private static string _token;
         private static HttpClient GetHttpClient()
         {
             _apiUrl = " http://4116ed5e90e2.ngrok.io";
             //_apiUrl = "http://191.234.169.132:3333";
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true
-            };
-
             if (_httpClient == null)
                 _httpClient = new HttpClient();
             return _httpClient;
@@ -47,7 +39,7 @@ namespace app_agv_molis.Helpers
 
                 Uri uri = new Uri(string.Format(MountApiUrl(api), string.Empty));
 
-                string json = JsonSerializer.Serialize((T)objectToSend, _serializerOptions);
+                string json = JsonConvert.SerializeObject(objectToSend);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 return await client.PostAsync(uri, content);
@@ -64,7 +56,7 @@ namespace app_agv_molis.Helpers
             try
             {
                 var client = GetHttpClient();
-
+                _token = await SecureStorage.GetAsync("token");
                 if (_token != null)
                 {
                     var authHeader = new AuthenticationHeaderValue("bearer", _token);
@@ -76,7 +68,7 @@ namespace app_agv_molis.Helpers
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<List<T>>(content, _serializerOptions);
+                    return JsonConvert.DeserializeObject<List<T>>(content);
                 }
                 return new List<T>();
             }
@@ -106,6 +98,10 @@ namespace app_agv_molis.Helpers
             {
                 var content = await result.Content.ReadAsStringAsync();
                 retorno = JsonConvert.DeserializeObject<T>(content);
+            } else
+            {
+                var responseForInvalidStatusCode = await result.Content.ReadAsStringAsync();
+                throw new Exception(JsonConvert.DeserializeObject<ErrorResponse>(responseForInvalidStatusCode).Message);
             }
             return retorno;
         }

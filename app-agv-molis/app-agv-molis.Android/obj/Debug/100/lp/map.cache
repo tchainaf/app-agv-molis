@@ -1,3 +1,4 @@
+app-agv-molis.dll
 FormsViewGroup.dll
 PCLExt.FileStorage.dll
 Plugin.InputKit.dll
@@ -89,4 +90,3 @@ androidx.asynclayoutinflater.asynclayoutinflater.aar
 androidx.legacy.legacy-support-core-ui.aar
 androidx.legacy.legacy-support-v4.aar
 androidx.browser.browser.aar
-app-agv-molis.dll
