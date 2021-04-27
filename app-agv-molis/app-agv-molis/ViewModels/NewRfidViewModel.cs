@@ -72,22 +72,15 @@ namespace app_agv_molis.ViewModels
             IsBusy = true;
             try
             {
-                var res = await _api.AddItemAsync(new Rfid(Name, SelectedHelixId));
+                await _api.AddItemAsync(new Rfid(Name, SelectedHelixId));
 
-                if (res.StatusCode == HttpStatusCode.Created)
-                {
-                    MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "SucessoAoCriar");
-                    await Shell.Current.GoToAsync("..");
-                }
-                else
-                {
-                    MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "ErroAoCriar");
-                }
+                MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "SucessoAoCriar");
+                await Shell.Current.GoToAsync("..");
             } 
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "ErroAoCriar");
+                MessagingCenter.Send<NewRfidPage, string>(new NewRfidPage(), "ErroAoCriar", new ErrorResponse().GetErrorMessage(ex.Message));
             }
             finally
             {

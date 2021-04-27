@@ -10,7 +10,8 @@ namespace app_agv_molis.Models
         private Dictionary<string, string> _errorsMessages = new Dictionary<string, string>()
         {
             {"Validation fails", "Erro interno. \nUm ou mais campos estão errados"},
-            {"Senha incorreta", "Senha incorreta"}
+            {"Senha incorreta", "Senha incorreta"},
+            {"Email já existe", "Email já existe"}
         };
 
         public string GetErrorMessage(string msg)

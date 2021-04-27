@@ -2,6 +2,7 @@
 using app_agv_molis.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -9,13 +10,16 @@ namespace app_agv_molis.Services
 {
     public class RfidApi : IHttpApi<Rfid>, IHelix<Rfid>
     {
-        public async Task<HttpResponseMessage> AddItemAsync(Rfid item)
+        public async Task<Rfid> AddItemAsync(Rfid item)
         {
             try
             {
-                return await HttpHelper.PostAsync<Rfid>(item, "/rfid");
-            } catch(Exception ex)
+                var result = await HttpHelper.PostAsync<Rfid>(item, "/rfid");
+                return await HttpHelper.GetContentFromResultAsync<Rfid>(result);
+            }
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 throw ex;
             }
         }

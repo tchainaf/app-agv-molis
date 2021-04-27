@@ -1,4 +1,5 @@
 ﻿using app_agv_molis.Helpers;
+using Newtonsoft.Json;
 using System;
 
 namespace app_agv_molis.Models
@@ -10,13 +11,14 @@ namespace app_agv_molis.Models
         private string department;
         private RoleEnum role;
         private string email;
+        private string password;
         private string salt;
 
         public User()
         {
         }
 
-        public User(string id, string name, string department, RoleEnum role, string email, string salt)
+        public User(string id, string name, string department, RoleEnum role, string email, string salt, string password)
         {
             this.Id = id;
             this.Name = name;
@@ -24,8 +26,19 @@ namespace app_agv_molis.Models
             this.Role = role;
             this.Email = email;
             this.Salt = salt;
+            this.Password = password;
         }
 
+        public User(string name, string department, RoleEnum role, string email, string password)
+        {
+            this.Name = name;
+            this.Department = department;
+            this.Role = role;
+            this.Email = email;
+            this.Password = password;
+        }
+
+        [JsonProperty("id")]
         public string Id
         {
             get => id; 
@@ -34,6 +47,8 @@ namespace app_agv_molis.Models
                 id = UtilsHelper.isValidString(value, "Id");
             }
         }
+
+        [JsonProperty("name")]
         public string Name
         {
             get => name; 
@@ -42,6 +57,8 @@ namespace app_agv_molis.Models
                 name = UtilsHelper.isValidString(value, "Nome");
             }
         }
+
+        [JsonProperty("department")]
         public string Department
         {
             get => department; 
@@ -50,6 +67,8 @@ namespace app_agv_molis.Models
                 department = UtilsHelper.isValidString(value, "Departamento");
             }
         }
+
+        [JsonProperty("role")]
         public RoleEnum Role
         {
             get => role;
@@ -58,6 +77,8 @@ namespace app_agv_molis.Models
                 role = value;
             }
         }
+
+        [JsonProperty("email")]
         public string Email
         {
             get => email; 
@@ -66,6 +87,8 @@ namespace app_agv_molis.Models
                 email = UtilsHelper.isValidString(value, "Email");
             }
         }
+
+        [JsonProperty("salt")]
         public string Salt
         {
             get => salt; 
@@ -75,6 +98,9 @@ namespace app_agv_molis.Models
             }
         }
 
+        [JsonProperty("password")]
+        public string Password { get => password; set => password = value; }
+
         public RoleEnum GetRoleEnumBy(int roleNumber)
         {
             switch (roleNumber)
@@ -82,6 +108,19 @@ namespace app_agv_molis.Models
                 case 0:
                     return RoleEnum.ADMIN;
                 case 1:
+                    return RoleEnum.COMMON;
+                default:
+                    throw new Exception("Role inválido");
+            }
+        }
+
+        public RoleEnum GetRoleEnumBy(string roleName)
+        {
+            switch (roleName)
+            {
+                case "ADMIN":
+                    return RoleEnum.ADMIN;
+                case "COMUM":
                     return RoleEnum.COMMON;
                 default:
                     throw new Exception("Role inválido");

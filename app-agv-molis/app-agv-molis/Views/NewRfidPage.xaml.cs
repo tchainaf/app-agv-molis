@@ -20,11 +20,11 @@ namespace app_agv_molis.Views
             });
             MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoCriar", async (sender, arg) =>
             {
-                await DisplayAlert("Alguma coisa ruim aconteceu", "arg=" + arg, "OK");
+                await DisplayAlert("Deu ruim", arg, "OK");
             });
             MessagingCenter.Subscribe<NewRfidPage>(this, "ErroAoBuscarHelixIds", async (sender) =>
             {
-                await DisplayAlert("Alguma coisa ruim aconteceu", "Erro ao buscar os ids do Helix", "OK");
+                await DisplayAlert("Deu ruim", "Erro ao buscar os ids do Helix", "OK");
             });
         }
 

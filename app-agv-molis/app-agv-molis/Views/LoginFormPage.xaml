@@ -9,9 +9,9 @@
     VerticalOptions="FillAndExpand">
         <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="15">
             <Label Text="Email" FontSize="Medium" />
-            <Entry Text="{Binding Email, Mode=TwoWay}" FontSize="Medium" />
+            <Entry Text="{Binding Email, Mode=TwoWay}" FontSize="Medium" Keyboard="Email" />
             <Label Text="Senha" FontSize="Medium" />
-            <Entry Text="{Binding Password, Mode=TwoWay}" FontSize="Medium" Margin="0" IsPassword="True"/>
+            <Entry Text="{Binding Password, Mode=TwoWay}" FontSize="Medium" Margin="0" IsPassword="True" Keyboard="Default" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Entrar" Clicked="LoginCommand" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Cancelar" Clicked="CancelCommand" HorizontalOptions="FillAndExpand"></Button>

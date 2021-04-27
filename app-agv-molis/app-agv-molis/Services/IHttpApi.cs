@@ -6,7 +6,7 @@ namespace app_agv_molis.Services
 {
     public interface IHttpApi<T>
     {
-        Task<HttpResponseMessage> AddItemAsync(T item);
+        Task<T> AddItemAsync(T item);
         Task<HttpResponseMessage> UpdateItemAsync(T item);
         Task<HttpResponseMessage> DeleteItemAsync(string id);
         Task<T> GetItemAsync(string id);

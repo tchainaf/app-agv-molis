@@ -11,9 +11,18 @@ namespace app_agv_molis.Services
     class UserApi : IHttpApi<User>
     {
 
-        public Task<HttpResponseMessage> AddItemAsync(User item)
+        public async Task<User> AddItemAsync(User item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await HttpHelper.PostAsync<User>(item, "/user");
+                return await HttpHelper.GetContentFromResultAsync<User>(result);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw ex;
+            }
         }
 
         public Task<HttpResponseMessage> DeleteItemAsync(string id)

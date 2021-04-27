@@ -1,8 +1,7 @@
 ﻿using app_agv_molis.Services;
 using app_agv_molis.Views;
-using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace app_agv_molis
 {
@@ -15,7 +14,15 @@ namespace app_agv_molis
 
             DependencyService.Register<RfidApi>();
             DependencyService.Register<UserApi>();
-            MainPage = new LoginPage();
+            var _token = SecureStorage.GetAsync("token").Result;
+            if (_token != null)
+            {
+                MainPage = new AppShell();
+            } 
+            else
+            {
+                MainPage = new LoginPage();
+            }
         }
 
         protected override void OnStart()

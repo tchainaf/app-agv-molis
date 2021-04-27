@@ -1,4 +1,5 @@
 ﻿using app_agv_molis.Helpers;
+using Newtonsoft.Json;
 
 namespace app_agv_molis.Models
 {
@@ -25,6 +26,7 @@ namespace app_agv_molis.Models
         {
         }
 
+        [JsonProperty("id")]
         public string Id
         {
             get => id;
@@ -33,6 +35,8 @@ namespace app_agv_molis.Models
                 id = UtilsHelper.isValidString(value, "Id");
             }
         }
+
+        [JsonProperty("name")]
         public string Name
         {
             get => name;
@@ -41,6 +45,8 @@ namespace app_agv_molis.Models
                 name = UtilsHelper.isValidString(value, "Nome");
             }
         }
+
+        [JsonProperty("helixId")]
         public string HelixId
         {
             get => helixId;

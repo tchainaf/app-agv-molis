@@ -8,11 +8,20 @@ namespace app_agv_molis.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignupFormPage : ContentPage
     {
+        SignupFormViewModel _viewModel;
         public SignupFormPage()
         {
             InitializeComponent();
-
-            this.BindingContext = new SignupFormViewModel();
+            this.BindingContext = _viewModel = new SignupFormViewModel();
+            TiposUsuarioPicker.ItemsSource = _viewModel.Tipos;
+            MessagingCenter.Subscribe<SignupFormPage>(this, "SucessoAoCriar", async (sender) =>
+            {
+                await DisplayAlert("Uhuul", "Usuário criado com sucesso!", "OK");
+            });
+            MessagingCenter.Subscribe<SignupFormPage, string>(this, "ErroAoCriar", async (sender, arg) =>
+            {
+                await DisplayAlert("Deu ruim", arg, "OK");
+            });
         }
 
         public void CancelCommand(object sender, EventArgs args)
