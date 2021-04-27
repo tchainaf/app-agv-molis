@@ -126,6 +126,18 @@ namespace app_agv_molis.Models
                     throw new Exception("Role inválido");
             }
         }
+        public string GetRoleNameBy(RoleEnum role)
+        {
+            switch (role)
+            {
+                case RoleEnum.ADMIN:
+                    return "ADMIN";
+                case RoleEnum.COMMON:
+                    return "COMUM";
+                default:
+                    throw new Exception("Role inválido");
+            }
+        }
 
         public enum RoleEnum
         {

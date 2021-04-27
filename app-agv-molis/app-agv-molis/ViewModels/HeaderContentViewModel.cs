@@ -15,7 +15,7 @@ namespace app_agv_molis.ViewModels
             var userId = await SecureStorage.GetAsync("userId");
             var userFromDB = await _sqliteHelper.Get((item) => item.Id == userId);
             UserName = userFromDB.Name;
-            UserRole = userFromDB.Role.ToString();
+            UserRole = userFromDB.GetRoleNameBy(userFromDB.Role);
         }
 
         public string UserName { 

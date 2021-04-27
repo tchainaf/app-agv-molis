@@ -17,13 +17,14 @@ namespace app_agv_molis.ViewModels
         private string departamento;
         private UserApi _api = new UserApi();
         private string _selectedItem;
+        private User _user = new User();
         public List<string> Tipos = new List<string>();
         public Command SaveNewUserCommand { get; }
 
         public SignupFormViewModel()
         {
-            this.Tipos.Add("ADMIN");
-            this.Tipos.Add("COMUM");
+            this.Tipos.Add(_user.GetRoleNameBy(User.RoleEnum.ADMIN));
+            this.Tipos.Add(_user.GetRoleNameBy(User.RoleEnum.COMMON));
             SaveNewUserCommand = new Command(OnSave);
         }
 
@@ -38,7 +39,7 @@ namespace app_agv_molis.ViewModels
             IsBusy = true;
             try
             {
-                 await _api.AddItemAsync(new User(Nome, Departamento, new User().GetRoleEnumBy(SelectedItem), Email, Senha));
+                 await _api.AddItemAsync(new User(Nome, Departamento, _user.GetRoleEnumBy(SelectedItem), Email, Senha));
 
                 MessagingCenter.Send<SignupFormPage>(new SignupFormPage(), "SucessoAoCriar");
                 Application.Current.MainPage = new LoginPage();
