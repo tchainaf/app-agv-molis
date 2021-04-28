@@ -18,7 +18,7 @@ namespace app_agv_molis.Helpers
         private static string _token;
         private static HttpClient GetHttpClient()
         {
-            _apiUrl = "http://0c5fad2456c5.ngrok.io";
+            _apiUrl = "http://b3e07b818a91.ngrok.io";
             //_apiUrl = "http://191.234.169.132:3333";
             if (_httpClient == null)
                 _httpClient = new HttpClient();
@@ -30,7 +30,7 @@ namespace app_agv_molis.Helpers
             try
             {
                 var client = GetHttpClient();
-                _token = await SecureStorage.GetAsync("token");
+                _token = await RoleHelper.GetToken();
                 if (_token != null)
                 {
                     var authHeader = new AuthenticationHeaderValue("bearer", _token);
@@ -56,7 +56,7 @@ namespace app_agv_molis.Helpers
             try
             {
                 var client = GetHttpClient();
-                _token = await SecureStorage.GetAsync("token");
+                _token = await RoleHelper.GetToken();
                 if (_token != null)
                 {
                     var authHeader = new AuthenticationHeaderValue("bearer", _token);

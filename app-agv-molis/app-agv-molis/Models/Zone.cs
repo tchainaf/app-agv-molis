@@ -2,7 +2,7 @@
 
 namespace app_agv_molis.Models
 {
-    class Zone
+    public class Zone
     {
         private string id;
         private string name;

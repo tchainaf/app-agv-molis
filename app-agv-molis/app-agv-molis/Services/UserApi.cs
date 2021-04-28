@@ -37,7 +37,14 @@ namespace app_agv_molis.Services
 
         public async Task<IEnumerable<User>> GetAllItemsAsync(bool forceRefresh = false)
         {
-            return await HttpHelper.GetAllAsync<User>("/users");
+            try
+            {
+                return await HttpHelper.GetAllAsync<User>("/users");
+            } 
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<User> GetItemAsync(string id)

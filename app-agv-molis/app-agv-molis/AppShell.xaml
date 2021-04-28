@@ -86,9 +86,7 @@
     </FlyoutItem>
 
     <ShellItem Route="login">
-        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" />
+        <ShellContent Title="Sair" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
     </ShellItem>
-
-    <!--<MenuItem Text="Sair" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>-->
 
 </Shell>

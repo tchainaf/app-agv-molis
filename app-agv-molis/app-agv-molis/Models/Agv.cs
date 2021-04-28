@@ -1,4 +1,5 @@
 ﻿using app_agv_molis.Helpers;
+using Newtonsoft.Json;
 
 namespace app_agv_molis.Models
 {
@@ -11,15 +12,38 @@ namespace app_agv_molis.Models
         private string location;
         private Zone[] path;
 
-        public Agv(string id, string name, string helixId, float batteryPercentage, string location)
+        public Agv()
+        {
+        }
+
+        public Agv(string id, string name, string helixId, float batteryPercentage, string location, Zone[] path)
         {
             this.Id = id;
             this.Name = name;
             this.HelixId = helixId;
             this.BatteryPercentage = batteryPercentage;
             this.Location = location;
+            this.path = path;
         }
 
+        public Agv(string name, string helixId, float batteryPercentage, string location, Zone[] path)
+        {
+            this.Name = name;
+            this.HelixId = helixId;
+            this.BatteryPercentage = batteryPercentage;
+            this.Location = location;
+            this.path = path;
+        }
+
+        public Agv(string name, string helixId, string location, Zone[] path)
+        {
+            this.Name = name;
+            this.HelixId = helixId;
+            this.Location = location;
+            this.path = path;
+        }
+
+        [JsonProperty("id")]
         public string Id
         {
             get => id; 
@@ -28,6 +52,8 @@ namespace app_agv_molis.Models
                 id = UtilsHelper.isValidString(value, "Id");
             }
         }
+
+        [JsonProperty("name")]
         public string Name
         {
             get => name; 
@@ -36,6 +62,8 @@ namespace app_agv_molis.Models
                 name = UtilsHelper.isValidString(value, "Name");
             }
         }
+
+        [JsonProperty("helixId")]
         public string HelixId
         {
             get => helixId; 
@@ -44,6 +72,8 @@ namespace app_agv_molis.Models
                 helixId = UtilsHelper.isValidString(value, "Helix Id");
             }
         }
+
+        [JsonProperty("batteryPercentage")]
         public float BatteryPercentage
         {
             get => batteryPercentage; 
@@ -52,6 +82,8 @@ namespace app_agv_molis.Models
                 batteryPercentage = value;
             }
         }
+
+        [JsonProperty("location")]
         public string Location
         {
             get => location; 
@@ -60,6 +92,8 @@ namespace app_agv_molis.Models
                 location = UtilsHelper.isValidString(value, "Id");
             }
         }
+
+        [JsonProperty("path")]
         internal Zone[] Path
         {
             get => path; 

@@ -1,5 +1,7 @@
-﻿using app_agv_molis.Views;
+﻿using app_agv_molis.Helpers;
+using app_agv_molis.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace app_agv_molis
@@ -11,13 +13,12 @@ namespace app_agv_molis
             InitializeComponent();
             Routing.RegisterRoute(nameof(NewAgvPage), typeof(NewAgvPage));
             Routing.RegisterRoute(nameof(NewRfidPage), typeof(NewRfidPage));
-
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private void OnMenuItemClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new LoginPage();
-            await Shell.Current.GoToAsync("//login");
+            RoleHelper.RemoveToken();
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

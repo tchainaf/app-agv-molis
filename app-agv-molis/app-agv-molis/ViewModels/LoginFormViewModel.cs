@@ -35,8 +35,8 @@ namespace app_agv_molis.ViewModels
             try
             {
                 var response = await _apiUser.LoginAsync(new UserLogin(Email.Trim(), Password));
-                await SecureStorage.SetAsync("token", response.Token);
-                await SecureStorage.SetAsync("userId", response.User.Id);
+                RoleHelper.SetToken(response.Token);
+                RoleHelper.SetUserId(response.User.Id);
                 await _sqliteHelper.Insert(response.User);
                 Application.Current.MainPage = new AppShell();
             }
