@@ -5,7 +5,6 @@ using app_agv_molis.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
@@ -35,10 +34,10 @@ namespace app_agv_molis.ViewModels
             try
             {
                 var response = await _apiUser.LoginAsync(new UserLogin(Email.Trim(), Password));
-                RoleHelper.SetToken(response.Token);
-                RoleHelper.SetUserId(response.User.Id);
+                await RoleHelper.SetToken(response.Token);
+                await RoleHelper.SetUserId(response.User.Id);
                 await _sqliteHelper.Insert(response.User);
-                Application.Current.MainPage = new AppShell();
+                await Shell.Current.GoToAsync($"//{nameof(DashPage)}");
             }
             catch (Exception ex)
             {

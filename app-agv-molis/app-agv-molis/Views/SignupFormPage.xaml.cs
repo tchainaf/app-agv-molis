@@ -24,9 +24,9 @@ namespace app_agv_molis.Views
             });
         }
 
-        public void CancelCommand(object sender, EventArgs args)
+        public async void CancelCommand(object sender, EventArgs args)
         {
-            Application.Current.MainPage = new LoginPage();
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
     }
 }

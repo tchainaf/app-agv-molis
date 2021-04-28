@@ -4,7 +4,6 @@ using app_agv_molis.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xamarin.Forms;
 
 namespace app_agv_molis.ViewModels
@@ -42,7 +41,7 @@ namespace app_agv_molis.ViewModels
                  await _api.AddItemAsync(new User(Nome, Departamento, _user.GetRoleEnumBy(SelectedItem), Email, Senha));
 
                 MessagingCenter.Send<SignupFormPage>(new SignupFormPage(), "SucessoAoCriar");
-                Application.Current.MainPage = new LoginPage();
+                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
             }
             catch (Exception ex)
             {

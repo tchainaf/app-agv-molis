@@ -67,6 +67,10 @@
         <local:HeaderContentPage></local:HeaderContentPage>
     </Shell.FlyoutHeader>
 
+    <TabBar>
+        <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
+
     <FlyoutItem Route="main"
                 Title="Dash"
                 Shell.TabBarIsVisible="False"
@@ -85,8 +89,10 @@
                       Route="RfidPage"/>
     </FlyoutItem>
 
-    <ShellItem Route="login">
-        <ShellContent Title="Sair" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </ShellItem>
+    <TabBar>
+        <ShellContent Route="LoginFormPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginFormPage}" />
+        <ShellContent Route="SignupFormPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:SignupFormPage}" />
+    </TabBar>
+    <MenuItem Text="Sair" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"></MenuItem>
 
 </Shell>

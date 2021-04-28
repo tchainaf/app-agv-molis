@@ -1,8 +1,6 @@
 ﻿using app_agv_molis.ViewModels;
 using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace app_agv_molis.Views
 {
@@ -19,9 +17,9 @@ namespace app_agv_molis.Views
             });
         }
 
-        public void CancelCommand(object sender, EventArgs args)
+        public async void CancelCommand(object sender, EventArgs args)
         {
-            Application.Current.MainPage = new LoginPage();
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
         public async void LoginCommand(object sender, EventArgs args)

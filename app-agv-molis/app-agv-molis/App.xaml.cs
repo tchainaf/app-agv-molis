@@ -15,14 +15,7 @@ namespace app_agv_molis
             DependencyService.Register<RfidApi>();
             DependencyService.Register<UserApi>();
             var _token = RoleHelper.GetToken().Result;
-            if (_token != null)
-            {
-                MainPage = new AppShell();
-            } 
-            else
-            {
-                MainPage = new LoginPage();
-            }
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

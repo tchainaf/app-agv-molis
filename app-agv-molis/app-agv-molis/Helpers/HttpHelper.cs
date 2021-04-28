@@ -18,7 +18,7 @@ namespace app_agv_molis.Helpers
         private static string _token;
         private static HttpClient GetHttpClient()
         {
-            _apiUrl = "http://b3e07b818a91.ngrok.io";
+            _apiUrl = "http://3c43f7ea6f71.ngrok.io";
             //_apiUrl = "http://191.234.169.132:3333";
             if (_httpClient == null)
                 _httpClient = new HttpClient();
