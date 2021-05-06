@@ -1,26 +1,25 @@
 ﻿using app_agv_molis.Helpers;
+using app_agv_molis.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace app_agv_molis.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HeaderContentPage : ContentPage
+    public partial class HeaderContentPage : ContentView
     {
-        private string _userName;
-        private string _userRole;
+        HeaderContentViewModel _viewModel;
         public HeaderContentPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            BindingContext = _viewModel = new HeaderContentViewModel();
+            this.LayoutChanged += (s, e) =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await _viewModel.GetHeaderInformation();
+                });
+            };
         }
-
-        protected override async void OnAppearing()
-        {
-            UserName = await RoleHelper.GetUserName();
-            UserRole = await RoleHelper.GetUserRole();
-        }
-
-        public string UserName { get => _userName; set => _userName = value; }
-        public string UserRole { get => _userRole; set => _userRole = value; }
     }
 }

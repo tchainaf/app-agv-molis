@@ -17,7 +17,6 @@ namespace app_agv_molis
             Routing.RegisterRoute(nameof(NewAgvPage), typeof(NewAgvPage));
             Routing.RegisterRoute(nameof(NewRfidPage), typeof(NewRfidPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-
             var token = RoleHelper.GetToken().Result;
             if (token == null)
             {
