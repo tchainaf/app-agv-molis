@@ -13,14 +13,20 @@ namespace app_agv_molis.Views
         {
             InitializeComponent();
             this.BindingContext = _viewModel = new SignupFormViewModel();
-            TiposUsuarioPicker.ItemsSource = _viewModel.Tipos;
-            MessagingCenter.Subscribe<SignupFormPage>(this, "SucessoAoCriar", async (sender) =>
+            //TiposUsuarioPicker.ItemsSource = _viewModel.Tipos;
+            MessagingCenter.Subscribe<SignupFormPage>(this, "SucessoAoCriar", (sender) =>
             {
-                await DisplayAlert("Uhuul", "Usuário criado com sucesso!", "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Uhuul", "Usuário criado com sucesso!", "OK");
+                });
             });
-            MessagingCenter.Subscribe<SignupFormPage, string>(this, "ErroAoCriar", async (sender, arg) =>
+            MessagingCenter.Subscribe<SignupFormPage, string>(this, "ErroAoCriar", (sender, arg) =>
             {
-                await DisplayAlert("Deu ruim", arg, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", arg, "OK");
+                });
             });
         }
 

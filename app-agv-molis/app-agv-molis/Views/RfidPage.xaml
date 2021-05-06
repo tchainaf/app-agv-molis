@@ -5,7 +5,7 @@
              Title="RFIDS">
 
     <ContentPage.ToolbarItems>
-        <views:ToolbarItemBindable Text="Novo" Command="{Binding AddRfidCommand}" IsVisible="{Binding IsVisible}" />
+        <views:ToolbarItemBindable Text="Novo" Command="{Binding AddRfidCommand}" />
     </ContentPage.ToolbarItems>
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="15">

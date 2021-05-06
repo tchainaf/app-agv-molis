@@ -31,26 +31,32 @@ namespace app_agv_molis.ViewModels
         private SqliteHelper<User> _sqliteHelper;
         public AgvViewModel()
         {
-            AgvsList = new ObservableCollection<Agv>();
             AgvTapped = new Command<Agv>(OnAgvSelected);
+            AgvsList = new ObservableCollection<Agv>();
             AddAgvCommand = new Command(OnAddAgv);
             _sqliteHelper = new SqliteHelper<User>();
-            ShouldSeeAdminTasks().Wait();
         }
 
-        public async Task ShouldSeeAdminTasks()
-        {
-            var currentUserId = await RoleHelper.GetUserId();
-            var currentUser = await _sqliteHelper.Get((user) => user.Id == currentUserId);
-            if (currentUser.Role == User.RoleEnum.ADMIN)
-            {
-                IsVisible = true;
-            }
-            else
-            {
-                IsVisible = false;
-            }
-        }
+        //private async Task ShouldSeeAdminTasks()
+        //{
+        //    try
+        //    {
+        //        var currentUserId = await RoleHelper.GetUserId();
+        //        var currentUser = await _sqliteHelper.Get((user) => user.Id == currentUserId);
+        //        if (currentUser.Role == User.RoleEnum.ADMIN)
+        //        {
+        //            IsVisible = true;
+        //        }
+        //        else
+        //        {
+        //            IsVisible = false;
+        //        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        IsVisible = false;
+        //    }
+        //}
 
         public async Task ExecuteLoadAgvsCommand()
         {

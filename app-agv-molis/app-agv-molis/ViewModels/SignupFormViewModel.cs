@@ -1,4 +1,5 @@
-﻿using app_agv_molis.Models;
+﻿using app_agv_molis.Helpers;
+using app_agv_molis.Models;
 using app_agv_molis.Services;
 using app_agv_molis.Views;
 using System;
@@ -27,10 +28,10 @@ namespace app_agv_molis.ViewModels
             SaveNewUserCommand = new Command(OnSave);
         }
 
-        public string Nome { get => nome; set => nome = value; }
-        public string Email { get => email; set => email = value; }
-        public string Senha { get => senha; set => senha = value; }
-        public string Departamento { get => departamento; set => departamento = value; }
+        public string Nome { get => nome; set => SetProperty(ref nome, value); }
+        public string Email { get => email; set => SetProperty(ref email, value); }
+        public string Senha { get => senha; set => SetProperty(ref senha, value); }
+        public string Departamento { get => departamento; set => SetProperty(ref departamento, value); }
         public string SelectedItem { get => _selectedItem; set => SetProperty(ref _selectedItem, value); }
 
         private async void OnSave()
@@ -38,7 +39,11 @@ namespace app_agv_molis.ViewModels
             IsBusy = true;
             try
             {
-                 await _api.AddItemAsync(new User(Nome, Departamento, _user.GetRoleEnumBy(SelectedItem), Email, Senha));
+                UtilsHelper.isValidString(Nome, "Nome");
+                UtilsHelper.isValidString(Email, "Email");
+                UtilsHelper.isValidString(Senha, "Senha");
+                UtilsHelper.isValidString(Departamento, "Departamento");
+                await _api.AddItemAsync(new User(Nome, Departamento, User.RoleEnum.COMMON, Email, Senha));
 
                 MessagingCenter.Send<SignupFormPage>(new SignupFormPage(), "SucessoAoCriar");
                 await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");

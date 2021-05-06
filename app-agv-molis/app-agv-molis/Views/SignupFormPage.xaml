@@ -18,7 +18,7 @@
             <Label Text="Departamento" FontSize="Medium" />
             <Entry Text="{Binding Departamento, Mode=TwoWay}" FontSize="Medium" Keyboard="Text" />
 
-            <StackLayout Padding="0,10,0,10">
+            <!--<StackLayout Padding="0,10,0,10">
                 <Label Text="Tipo de usuário" FontSize="Medium" />
                 <Picker x:Name="TiposUsuarioPicker" 
                     FontSize="Large"
@@ -26,7 +26,7 @@
                     ItemsSource="{Binding Tipos}"
                     SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                 />
-            </StackLayout>
+            </StackLayout>-->
 
             <StackLayout Padding="0,10,0,15">
             </StackLayout>

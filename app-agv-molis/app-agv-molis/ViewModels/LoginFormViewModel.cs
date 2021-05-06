@@ -33,11 +33,13 @@ namespace app_agv_molis.ViewModels
             IsBusy = true; 
             try
             {
-                var response = await _apiUser.LoginAsync(new UserLogin(Email.Trim(), Password));
+                UtilsHelper.isValidString(Email.Trim(), "Email");
+                UtilsHelper.isValidString(Password, "Senha");
+                var response = await _apiUser.LoginAsync(new UserLogin(Email, Password));
                 await RoleHelper.SetToken(response.Token);
                 await RoleHelper.SetUserId(response.User.Id);
                 await _sqliteHelper.Insert(response.User);
-                await Shell.Current.GoToAsync($"//{nameof(DashPage)}");
+                Application.Current.MainPage = new AppShell();
             }
             catch (Exception ex)
             {
@@ -46,6 +48,8 @@ namespace app_agv_molis.ViewModels
             }
             finally
             {
+                Email = String.Empty;
+                Password = String.Empty;
                 IsBusy = false;
             }
         }

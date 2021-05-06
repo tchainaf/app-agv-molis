@@ -5,7 +5,7 @@
              Title="AGVS">
 
     <ContentPage.ToolbarItems>
-        <views:ToolbarItemBindable Text="Novo" Command="{Binding AddAgvCommand}" IsVisible="{Binding IsVisible}" />
+        <views:ToolbarItemBindable Text="Novo" Command="{Binding AddAgvCommand}" />
     </ContentPage.ToolbarItems>
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

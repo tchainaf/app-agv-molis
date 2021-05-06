@@ -16,5 +16,6 @@ namespace app_agv_molis.Services
         Task<int> Insert(T entity);
         Task<int> Update(T entity);
         Task<int> Delete(T entity);
+        Task Delete(Expression<Func<T, bool>> predicate);
     }
 }

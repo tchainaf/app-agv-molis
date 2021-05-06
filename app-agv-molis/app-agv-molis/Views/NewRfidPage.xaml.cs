@@ -14,17 +14,26 @@ namespace app_agv_molis.Views
             InitializeComponent();
             this.BindingContext = _viewModel = new NewRfidViewModel();
             Title = "Novo Rfid";
-            MessagingCenter.Subscribe<NewRfidPage>(this, "SucessoAoCriar", async (sender) =>
+            MessagingCenter.Subscribe<NewRfidPage>(this, "SucessoAoCriar", (sender) =>
             {
-                await DisplayAlert("Uhuul", "RFID criado com sucesso!", "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Uhuul", "RFID criado com sucesso!", "OK");
+                });
             });
-            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoCriar", async (sender, arg) =>
+            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoCriar", (sender, arg) =>
             {
-                await DisplayAlert("Deu ruim", arg, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", arg, "OK");
+                });
             });
-            MessagingCenter.Subscribe<NewRfidPage>(this, "ErroAoBuscarHelixIds", async (sender) =>
+            MessagingCenter.Subscribe<NewRfidPage>(this, "ErroAoBuscarHelixIds", (sender) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao buscar os ids do Helix", "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao buscar os ids do Helix", "OK");
+                });
             });
         }
 

@@ -13,7 +13,10 @@ namespace app_agv_molis.Views
             this.BindingContext = _viewModel = new LoginFormViewModel();
             MessagingCenter.Subscribe<LoginFormPage, string>(this, "ErroLogin", async (sender, arg) =>
             {
-                await DisplayAlert("Deu ruim", arg, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", arg, "OK");
+                });
             });
         }
 

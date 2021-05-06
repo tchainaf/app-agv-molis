@@ -12,16 +12,18 @@ namespace app_agv_molis.Views
         {
             InitializeComponent();
             this.BindingContext = _viewModel = new RfidViewModel();
-            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoBuscar", async (sender, args) =>
+            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoBuscar", (sender, args) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao buscar os rfids\n" + args, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao buscar os rfids\n" + args, "OK");
+                });
             });
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
-            await _viewModel.ShouldSeeAdminTasks();
             await _viewModel.ExecuteLoadRfidsCommand();
             RfidView.ItemsSource = _viewModel.RfidsList;
         }

@@ -28,27 +28,8 @@ namespace app_agv_molis.ViewModels
             RfidTapped = new Command<Rfid>(OnRfidSelected);
             AddRfidCommand = new Command(OnAddRfid);
         }
-        public async Task ShouldSeeAdminTasks()
-        {
-            try
-            {
-                var currentUserId = await RoleHelper.GetUserId();
-                var currentUser = await _sqliteHelper.Get((user) => user.Id == currentUserId);
-                if (currentUser.Role == User.RoleEnum.ADMIN)
-                {
-                    IsVisible = true;
-                }
-                else
-                {
-                    IsVisible = false;
-                }
-            } 
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex);
-                IsVisible = false;
-            }
-        }
+
+
         public async Task ExecuteLoadRfidsCommand()
         {
             IsBusy = true;

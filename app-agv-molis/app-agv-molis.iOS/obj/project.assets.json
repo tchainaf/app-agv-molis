@@ -1597,7 +1597,6 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "Newtonsoft.Json >= 13.0.1",
-      "PCLExt.FileStorage >= 1.4.1.1",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.8.0.1451",
       "app-agv-molis >= 1.0.0"
@@ -1648,10 +1647,6 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"
-          },
-          "PCLExt.FileStorage": {
-            "target": "Package",
-            "version": "[1.4.1.1, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

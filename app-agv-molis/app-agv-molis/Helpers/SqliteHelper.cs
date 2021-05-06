@@ -3,6 +3,7 @@ using app_agv_molis.Services;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -32,6 +33,11 @@ namespace app_agv_molis.Helpers
         public async Task<List<T>> Get()
         {
             return await _database.Table<T>().ToListAsync();
+        }
+
+        public async Task Delete(Expression<Func<T, bool>> predicate)
+        {
+            await _database.Table<T>().DeleteAsync(predicate);
         }
 
         public async Task<T> Get(int id)

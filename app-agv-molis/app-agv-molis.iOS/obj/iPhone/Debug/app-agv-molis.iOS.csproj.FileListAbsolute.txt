@@ -1,11 +1,3 @@
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\optimized\
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.csprojAssemblyReference.cache
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.csproj.CoreCompileInputs.cache
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\app-agv-molis.iOS.exe
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\app-agv-molis.iOS.pdb
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
@@ -67,6 +59,14 @@ D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\a
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.pdb
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\Mono.Android.pdb
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\bin\iPhone\Debug\Mono.Android.xml
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\optimized\
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.csprojAssemblyReference.cache
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.csproj.CoreCompileInputs.cache
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.csproj.CopyComplete
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.exe
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.iOS\obj\iPhone\Debug\app-agv-molis.iOS.pdb

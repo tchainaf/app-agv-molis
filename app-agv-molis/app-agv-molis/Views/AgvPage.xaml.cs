@@ -1,5 +1,6 @@
 ﻿using app_agv_molis.ViewModels;
-
+using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,30 +14,48 @@ namespace app_agv_molis.Views
         {
             InitializeComponent();
             this.BindingContext = _viewModel = new AgvViewModel();
-            MessagingCenter.Subscribe<AgvPage, string>(this, "ErroAoBuscar", async (sender, args) =>
+            MessagingCenter.Subscribe<AgvPage, string>(this, "ErroAoBuscar", (sender, args) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao buscar os agvs\n" + args, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao buscar os agvs\n" + args, "OK");
+                });
             });
-            MessagingCenter.Subscribe<AgvPage>(this, "ErroAoBuscarHelixIds", async (sender) =>
+            MessagingCenter.Subscribe<AgvPage>(this, "ErroAoBuscarHelixIds", (sender) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao buscar os ids do Helix", "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao buscar os ids do Helix", "OK");
+                });
             });
-            MessagingCenter.Subscribe<AgvPage>(this, "SucessoAoCriar", async (sender) =>
+            MessagingCenter.Subscribe<AgvPage>(this, "SucessoAoCriar", (sender) =>
             {
-                await DisplayAlert("Uhuuul", "Agv criado com sucesso!", "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Uhuuul", "Agv criado com sucesso!", "OK");
+                });
             });
-            MessagingCenter.Subscribe<AgvPage, string>(this, "ErroAoCriar", async (sender, args) =>
+            MessagingCenter.Subscribe<AgvPage, string>(this, "ErroAoCriar", (sender, args) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao criar o agv\n" + args, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao criar o agv\n" + args, "OK");
+                });
             });
         }
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-            await _viewModel.ShouldSeeAdminTasks();
-            await _viewModel.ExecuteLoadAgvsCommand();
-            AgvView.ItemsSource = _viewModel.AgvsList;
+            try
+            {
+                base.OnAppearing();
+                _viewModel.OnAppearing();
+                await _viewModel.ExecuteLoadAgvsCommand();
+                AgvView.ItemsSource = _viewModel.AgvsList;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

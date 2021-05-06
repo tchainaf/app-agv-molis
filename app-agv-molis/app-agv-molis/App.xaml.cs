@@ -1,6 +1,7 @@
 ﻿using app_agv_molis.Helpers;
 using app_agv_molis.Services;
 using app_agv_molis.Views;
+using System;
 using Xamarin.Forms;
 
 namespace app_agv_molis
@@ -14,7 +15,6 @@ namespace app_agv_molis
 
             DependencyService.Register<RfidApi>();
             DependencyService.Register<UserApi>();
-            var _token = RoleHelper.GetToken().Result;
             MainPage = new AppShell();
         }
 

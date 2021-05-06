@@ -1,12 +1,16 @@
 ﻿using app_agv_molis.Helpers;
+using app_agv_molis.Models;
 using app_agv_molis.Views;
 using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace app_agv_molis
+namespace app_agv_molis 
 {
     public partial class AppShell : Shell
     {
+        private SqliteHelper<User> _sqliteHelper = new SqliteHelper<User>();
         public AppShell()
         {
             InitializeComponent();
@@ -15,15 +19,41 @@ namespace app_agv_molis
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
 
             var token = RoleHelper.GetToken().Result;
-            if (token != null)
+            if (token == null)
             {
-                this.Navigation.PushModalAsync(new LoginPage());
+                Application.Current.MainPage = new LoginPage();
+                Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+            }
+            GetInfoLocalUser().ConfigureAwait(true);
+        }
+
+        private async Task GetInfoLocalUser()
+        {
+            try
+            {
+                var userId = await RoleHelper.GetUserId();
+                var userFromDB = await _sqliteHelper.Get((item) => item.Id == userId);
+                if (userFromDB != null)
+                {
+
+                    await RoleHelper.SetUserName(userFromDB.Name);
+                    await RoleHelper.SetUserRole(userFromDB.Role.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
+            var userId = await RoleHelper.GetUserId();
             RoleHelper.RemoveToken();
+            RoleHelper.RemoveUserId();
+            RoleHelper.RemoveUserRole();
+            RoleHelper.RemoveUserName();
+            await _sqliteHelper.Delete((u) => u.Id == userId);
             await Shell.Current.GoToAsync("//LoginPage");
         }
     }
