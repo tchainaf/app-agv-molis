@@ -29,6 +29,25 @@ namespace app_agv_molis.ViewModels
             AddRfidCommand = new Command(OnAddRfid);
         }
 
+        public async Task ExecuteDeleteRfidCommand(string id)
+        {
+            IsBusy = true;
+
+            try
+            {
+                await _api.DeleteItemAsync(id);
+                MessagingCenter.Send<RfidPage>(new RfidPage(), "SucessoAoDeletar");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessagingCenter.Send<RfidPage, string>(new RfidPage(), "ErroAoDeletar", new ErrorResponse().GetErrorMessage(ex.Message));
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
 
         public async Task ExecuteLoadRfidsCommand()
         {

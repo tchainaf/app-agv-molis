@@ -14,9 +14,17 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Name}" FontSize="Body" />
-                            </StackLayout>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" FontSize="Body" />
+                                    <ImageButton 
+                                        CommandParameter="{Binding Id}" 
+                                        Clicked="DeleteClicked"
+                                        Source="deleteicon.png"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
