@@ -14,7 +14,7 @@ namespace app_agv_molis.Services
             throw new NotImplementedException();
         }
 
-        public async Task<HttpResponseMessage> DeleteItemAsync(string id)
+        public async Task DeleteItemAsync(string id)
         {
             throw new NotImplementedException();
         }

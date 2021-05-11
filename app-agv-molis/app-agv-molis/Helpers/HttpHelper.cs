@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace app_agv_molis.Helpers
 {
@@ -18,8 +18,8 @@ namespace app_agv_molis.Helpers
         private static string _token;
         private static HttpClient GetHttpClient()
         {
-            _apiUrl = "http://7f930e90d6a0.ngrok.io";
-            //_apiUrl = "http://191.234.169.132:3333";
+            _apiUrl = "http://54.161.21.90:3333";
+
             if (_httpClient == null)
                 _httpClient = new HttpClient();
             return _httpClient;
@@ -42,7 +42,12 @@ namespace app_agv_molis.Helpers
                 string json = JsonConvert.SerializeObject(objectToSend);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                return await client.PostAsync(uri, content);
+                var response = await client.PostAsync(uri, content);
+                if (IsForbiddenStatusCode(response))
+                {
+                    throw new Exception("JWT expirou");
+                }
+                return response;
             }
             catch (Exception ex)
             {
@@ -51,7 +56,7 @@ namespace app_agv_molis.Helpers
             }
         }
 
-        public static async Task<List<T>> GetAllAsync<T>(string api = null)
+        public static async Task<List<T>> GetAllAsync<T>(string api)
         {
             try
             {
@@ -70,6 +75,10 @@ namespace app_agv_molis.Helpers
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<List<T>>(content);
                 }
+                if (IsForbiddenStatusCode(response))
+                {
+                    throw new Exception("JWT expirou");
+                }
                 return new List<T>();
             }
             catch (Exception ex)
@@ -79,15 +88,52 @@ namespace app_agv_molis.Helpers
             }
         }
 
-        internal static string MountApiUrl(string api = null)
+        private static bool IsForbiddenStatusCode(HttpResponseMessage response)
+        {
+            if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static async Task DeleteAsync<T>(string id, string api)
+        {
+            try
+            {
+                var client = GetHttpClient();
+                _token = await RoleHelper.GetToken();
+                if (_token != null)
+                {
+                    var authHeader = new AuthenticationHeaderValue("bearer", _token);
+                    client.DefaultRequestHeaders.Authorization = authHeader;
+                }
+
+                Uri uri = new Uri(string.Format(MountApiUrl(api, id), string.Empty));
+                var response = await client.DeleteAsync(uri);
+                if (IsForbiddenStatusCode(response))
+                {
+                    throw new Exception("JWT expirou");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.InnerException);
+                throw ex;
+            }
+        }
+
+        internal static string MountApiUrl(string api = null, string id = null)
         {
             if (api == null)
             {
-                return _apiUrl;
+                if (id == null) return _apiUrl;
+                return _apiUrl + "/" + id;
             }
             else
             {
-                return _apiUrl + api;
+                if (id == null) return _apiUrl + api;
+                return _apiUrl + api + "/" + id;
             }
         }
 

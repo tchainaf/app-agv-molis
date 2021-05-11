@@ -17,12 +17,7 @@
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" FontSize="Body" />
-                                    <ImageButton 
-                                        CommandParameter="{Binding Id}" 
-                                        Clicked="DeleteClicked"
-                                        Source="deleteicon.png"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand" />
+                                    <Button WidthRequest="50" HeightRequest="50" Text="X" CommandParameter="{Binding Id}" Clicked="DeleteClicked"></Button>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>

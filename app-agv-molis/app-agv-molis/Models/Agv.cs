@@ -9,6 +9,7 @@ namespace app_agv_molis.Models
         private string name;
         private string helixId;
         private float batteryPercentage;
+        private string batteryPercentageColor;
         private string location;
         private Zone[] path;
 
@@ -102,5 +103,7 @@ namespace app_agv_molis.Models
                 path = value;
             }
         }
+
+        public string BatteryPercentageColor { get => batteryPercentageColor; set => batteryPercentageColor = value; }
     }
 }

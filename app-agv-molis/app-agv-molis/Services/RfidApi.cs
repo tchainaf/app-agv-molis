@@ -24,9 +24,17 @@ namespace app_agv_molis.Services
             }
         }
 
-        public Task<HttpResponseMessage> DeleteItemAsync(string id)
+        public async Task DeleteItemAsync(string id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await HttpHelper.DeleteAsync<Rfid>(id, "/rfid");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw ex;
+            }
         }
 
         public async Task<IEnumerable<Rfid>> GetAllItemsAsync(bool forceRefresh = false)

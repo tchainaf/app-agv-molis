@@ -13,17 +13,26 @@ namespace app_agv_molis.Views
         {
             InitializeComponent();
             this.BindingContext = _viewModel = new RfidViewModel();
-            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoBuscar", async (sender, args) =>
+            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoBuscar", (sender, args) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao buscar os rfids\n" + args, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao buscar os rfids\n" + args, "OK");
+                });
             });
-            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoDeletar", async (sender, args) =>
+            MessagingCenter.Subscribe<NewRfidPage, string>(this, "ErroAoDeletar", (sender, args) =>
             {
-                await DisplayAlert("Deu ruim", "Erro ao apagar o rfid\n" + args, "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Deu ruim", "Erro ao apagar o rfid\n" + args, "OK");
+                });
             });
-            MessagingCenter.Subscribe<NewRfidPage>(this, "SucessoAoDeletar", async (sender) =>
+            MessagingCenter.Subscribe<NewRfidPage>(this, "SucessoAoDeletar", (sender) =>
             {
-                await DisplayAlert("Deu ruim", "Rfid apagado com sucesso!\n", "OK");
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Uhuuul", "Rfid apagado com sucesso!\n", "OK");
+                });
             });
         }
 
@@ -31,6 +40,7 @@ namespace app_agv_molis.Views
         {
             var item = (Button)sender;
             await _viewModel.ExecuteDeleteRfidCommand(item.CommandParameter.ToString());
+            OnAppearing();
         }
 
         protected override async void OnAppearing()

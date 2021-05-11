@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\CardViewTemplate.xaml.cs">
+      <DependentUpon>CardViewTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\DashPage.xaml.cs">
       <DependentUpon>DashPage.xaml</DependentUpon>
     </Compile>

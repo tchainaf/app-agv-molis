@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fWlKVhyvH3+45foRVcXWMZT0hvK5LjktSJHUG0THgKIJYrXYmltX82wR8LoiapJdh6FIZ00OCADJl2o+PFtNmw==",
+  "dgSpecHash": "7KKzLXDYuDYUW4+uzCpZ4g3smspheGIvQll8xRVz0XGAqz1+ArKDSTm4Nn38Q+KWu93zij7ic7Uk9w5txkP4mA==",
   "success": true,
   "projectFilePath": "D:\\Arquivos\\Dev\\app-agv-molis\\app-agv-molis\\app-agv-molis.iOS\\app-agv-molis.iOS.csproj",
   "expectedPackageFiles": [
@@ -12,24 +12,12 @@
     "C:\\Users\\andra\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
     "C:\\Users\\andra\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\andra\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\andra\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\andra\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
-    "C:\\Users\\andra\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\andra\\.nuget\\packages\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Downgrade de pacote detectado: Xamarin.Essentials de 1.6.1 para 1.5.3.2. Referencie o pacote diretamente do projeto para selecionar uma versão diferente. \r\n app-agv-molis.iOS -> app-agv-molis -> Xamarin.Essentials (>= 1.6.1) \r\n app-agv-molis.iOS -> Xamarin.Essentials (>= 1.5.3.2)",
-      "libraryId": "Xamarin.Essentials",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    },
     {
       "code": "NU1605",
       "level": "Warning",
