@@ -2,19 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="app_agv_molis.Views.DashPage"
-             xmlns:local="clr-namespace:app_agv_molis.Views">
-    <StackLayout Orientation="Vertical">
-        <ListView x:Name="listView" 
-                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
-                  HasUnevenRows="True"
-                  ItemsSource="{Binding AgvsList}" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <local:CardViewTemplate/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+             xmlns:local="clr-namespace:app_agv_molis.Views"
+             xmlns:viewModel="clr-namespace:app_agv_molis.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModel:DashViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout Orientation="Vertical" Padding="20">
+        <local:StepProgressBarControl  StepColor="{Binding Primary}" Steps="5" StepSelected="3" x:Name="stepBar" StepsName="{Binding ZonesNames}" />
     </StackLayout>
 </ContentPage>

@@ -50,7 +50,6 @@ namespace app_agv_molis.Views
                 base.OnAppearing();
                 _viewModel.OnAppearing();
                 await _viewModel.ExecuteLoadAgvsCommand();
-                AgvView.ItemsSource = _viewModel.AgvsList;
             }
             catch(Exception ex)
             {

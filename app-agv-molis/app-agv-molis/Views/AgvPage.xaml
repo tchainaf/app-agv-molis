@@ -9,15 +9,15 @@
     </ContentPage.ToolbarItems>
 
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="15">
-            <ListView x:Name="AgvView"
-            ItemsSource="{Binding AgvList}">
+        <StackLayout Orientation="Vertical">
+            <ListView x:Name="listView" 
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding AgvsList}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Name}" FontSize="Body" />
-                            </StackLayout>
+                            <views:CardViewTemplate/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

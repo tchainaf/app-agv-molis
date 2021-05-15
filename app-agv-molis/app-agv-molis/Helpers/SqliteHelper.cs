@@ -18,6 +18,7 @@ namespace app_agv_molis.Helpers
         {
             _database = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "db.db3"));
             _database.CreateTableAsync<User>().Wait();
+            _database.CreateTableAsync<Rfid>().Wait();
         }
 
         public AsyncTableQuery<T> AsQueryable()
