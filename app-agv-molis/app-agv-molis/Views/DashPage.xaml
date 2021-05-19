@@ -7,7 +7,73 @@
     <ContentPage.BindingContext>
         <viewModel:DashViewModel/>
     </ContentPage.BindingContext>
-    <StackLayout Orientation="Vertical" Padding="20">
-        <local:StepProgressBarControl  StepColor="{Binding Primary}" Steps="5" StepSelected="3" x:Name="stepBar" StepsName="{Binding ZonesNames}" />
+    <StackLayout Padding="20" Orientation="Horizontal">
+        <StackLayout Orientation="Vertical">
+            <local:StepProgressBarControl Grid.Column="0" StepColor="{Binding Primary}" Steps="5" x:Name="stepBar" StepsName="{Binding ZonesNames}" />
+        </StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <BoxView Grid.Row="0"
+                    Grid.Column="1" />
+            <Label Grid.Row="0"
+                Grid.Column="1"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Text="{Binding AgvsInZone1}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+            <BoxView Grid.Row="1"
+                    Grid.Column="1" />
+            <Label Grid.Row="1"
+                Grid.Column="1"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Text="{Binding AgvsInZone2}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+            <BoxView Grid.Row="2"
+                    Grid.Column="1" />
+            <Label Grid.Row="2"
+                Grid.Column="1"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Text="{Binding AgvsInZone3}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+            <BoxView Grid.Row="3"
+                    Grid.Column="1" />
+            <Label Grid.Row="3"
+                Grid.Column="1"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Text="{Binding AgvsInZone4}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+            <BoxView Grid.Row="4"
+                    Grid.Column="1" />
+            <Label Grid.Row="4"
+                Grid.Column="1"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Text="{Binding AgvsInZone5}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+        </Grid>
     </StackLayout>
 </ContentPage>

@@ -15,6 +15,7 @@ namespace app_agv_molis.Services
         {
             try
             {
+                await this.LoginAsync(new UserLogin("a@exemplo.com", "123"));
                 var result = await HttpHelper.PostAsync<User>(item, "/user");
                 return await HttpHelper.GetContentFromResultAsync<User>(result);
             }
@@ -62,7 +63,9 @@ namespace app_agv_molis.Services
             try
             {
                 var result = await HttpHelper.PostAsync<object>(userLogin, "/login");
-                return await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);            
+                var response = await HttpHelper.GetContentFromResultAsync<UserLoginResponse>(result);
+                await RoleHelper.SetToken(response.Token);
+                return response;
             } catch(Exception ex)
             {
                 Debug.WriteLine(ex);

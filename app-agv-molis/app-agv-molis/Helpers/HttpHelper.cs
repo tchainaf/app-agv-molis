@@ -43,10 +43,6 @@ namespace app_agv_molis.Helpers
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var response = await client.PostAsync(uri, content);
-                if (IsForbiddenStatusCode(response))
-                {
-                    throw new Exception("JWT expirou");
-                }
                 return response;
             }
             catch (Exception ex)
@@ -74,10 +70,6 @@ namespace app_agv_molis.Helpers
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<List<T>>(content);
-                }
-                if (IsForbiddenStatusCode(response))
-                {
-                    throw new Exception("JWT expirou");
                 }
                 return new List<T>();
             }
@@ -111,10 +103,6 @@ namespace app_agv_molis.Helpers
 
                 Uri uri = new Uri(string.Format(MountApiUrl(api, id), string.Empty));
                 var response = await client.DeleteAsync(uri);
-                if (IsForbiddenStatusCode(response))
-                {
-                    throw new Exception("JWT expirou");
-                }
             }
             catch (Exception ex)
             {

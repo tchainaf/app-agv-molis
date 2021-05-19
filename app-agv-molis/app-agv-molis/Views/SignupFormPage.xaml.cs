@@ -13,7 +13,6 @@ namespace app_agv_molis.Views
         {
             InitializeComponent();
             this.BindingContext = _viewModel = new SignupFormViewModel();
-            //TiposUsuarioPicker.ItemsSource = _viewModel.Tipos;
             MessagingCenter.Subscribe<SignupFormPage>(this, "SucessoAoCriar", (sender) =>
             {
                 Device.BeginInvokeOnMainThread(async () =>

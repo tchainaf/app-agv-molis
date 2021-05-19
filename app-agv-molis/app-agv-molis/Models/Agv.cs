@@ -36,12 +36,10 @@ namespace app_agv_molis.Models
             this.path = path;
         }
 
-        public Agv(string name, string helixId, string location, Zone[] path)
+        public Agv(string name, string helixId)
         {
             this.Name = name;
             this.HelixId = helixId;
-            this.Location = location;
-            this.path = path;
         }
 
         [JsonProperty("id")]
@@ -105,5 +103,21 @@ namespace app_agv_molis.Models
         }
 
         public string BatteryPercentageColor { get => batteryPercentageColor; set => batteryPercentageColor = value; }
+        public string SetBatteryPercentageColor(float battery)
+        {
+            if (battery >= 50)
+            {
+                return "#32CD32";
+            }
+            else if (battery >= 30)
+            {
+                return "#FF4500";
+            }
+            else
+            {
+                return "#FF0000";
+            }
+        }
+
     }
 }

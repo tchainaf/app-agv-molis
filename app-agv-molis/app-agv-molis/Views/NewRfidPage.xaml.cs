@@ -28,21 +28,6 @@ namespace app_agv_molis.Views
                     await DisplayAlert("Deu ruim", arg, "OK");
                 });
             });
-            MessagingCenter.Subscribe<NewRfidPage>(this, "ErroAoBuscarHelixIds", (sender) =>
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await DisplayAlert("Deu ruim", "Erro ao buscar os ids do Helix", "OK");
-                });
-            });
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-            await _viewModel.ExecuteLoadHelixIdsCommand();
-            RfidPicker.ItemsSource = _viewModel.HelixIds;
         }
     }
 }

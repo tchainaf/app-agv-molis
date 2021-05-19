@@ -17,7 +17,9 @@ namespace app_agv_molis.Models
             {"Departamento é obrigatório!", "Departamento é um campo obrigatório!"},
             {"Nome é obrigatório!", "Nome é um campo obrigatório!"},
             {"Rfid com esse id já existe", "Rfid com esse Helix id já existe"},
-            {"JWT expirou", "Necessário logar novamente"}
+            {"JWT expirou", "Necessário logar novamente"},
+            {"Usuário com esse email não encontrado", "Usuário com esse email não encontrado" },
+            {"Agv com esse id do helix já existe", "Agv com esse id já foi existe" }
 
         };
 

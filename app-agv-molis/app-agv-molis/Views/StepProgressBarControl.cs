@@ -73,10 +73,6 @@ namespace app_agv_molis.Views
                 {
                     AddStyles();
                 }
-                else if (propertyName == StepsNameProperty.PropertyName)
-                {
-                    SetStepsAsync();
-                }
             }
             catch (Exception ex)
             {

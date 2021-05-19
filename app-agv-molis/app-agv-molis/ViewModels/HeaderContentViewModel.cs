@@ -7,7 +7,7 @@ namespace app_agv_molis.ViewModels
     class HeaderContentViewModel : BaseViewModel<User>
     {
         private string _userName;
-        private string _userRole;
+        private string _userEmail;
 
         public HeaderContentViewModel()
         {            
@@ -16,10 +16,10 @@ namespace app_agv_molis.ViewModels
         public async Task GetHeaderInformation()
         {
             UserName = await RoleHelper.GetUserName();
-            UserRole = await RoleHelper.GetUserRole();
+            UserEmail = await RoleHelper.GetUserEmail();
         }
 
         public string UserName { get => _userName; set => SetProperty(ref _userName, value); }
-        public string UserRole { get => _userRole; set => SetProperty(ref _userRole, value); }
+        public string UserEmail { get => _userEmail; set => SetProperty(ref _userEmail, value); }
     }
 }

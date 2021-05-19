@@ -36,7 +36,6 @@ namespace app_agv_molis.ViewModels
                 UtilsHelper.isValidString(Email.Trim(), "Email");
                 UtilsHelper.isValidString(Password, "Senha");
                 var response = await _apiUser.LoginAsync(new UserLogin(Email, Password));
-                await RoleHelper.SetToken(response.Token);
                 await RoleHelper.SetUserId(response.User.Id);
                 await _sqliteHelper.Insert(response.User);
                 Application.Current.MainPage = new AppShell();

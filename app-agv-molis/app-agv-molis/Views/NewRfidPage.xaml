@@ -11,12 +11,8 @@
 
             <StackLayout Padding="0,10,0,10">
                 <Label Text="Id do Helix" FontSize="Medium" />
-                <Picker x:Name="RfidPicker" 
-                    FontSize="Large"
-                    Title="Selecione o id do Helix"
-                    ItemsSource="{Binding HelixIds}"
-                    SelectedItem="{Binding SelectedHelixId, Mode=TwoWay}"
-                />
+                <Entry Text="{Binding HelixId, Mode=TwoWay}" FontSize="Medium" />
+                
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Salvar" Command="{Binding SaveRfidCommand}" HorizontalOptions="FillAndExpand"></Button>

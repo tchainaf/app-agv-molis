@@ -37,14 +37,15 @@
                 <Label
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="Center"
+                    FontSize="Large"
                     TextColor="Black"
                     Text="{Binding UserName, Mode=TwoWay}" />
                 <Label
                     HorizontalTextAlignment="Start"
-                    FontSize="Micro"
+                    FontSize="Medium"
                     VerticalTextAlignment="Center"
                     TextColor="Black"
-                    Text="{Binding UserRole, Mode=TwoWay}" />
+                    Text="{Binding UserEmail, Mode=TwoWay}" />
 
             </StackLayout>
         </Grid>

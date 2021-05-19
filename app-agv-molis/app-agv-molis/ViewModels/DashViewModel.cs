@@ -21,11 +21,27 @@ namespace app_agv_molis.ViewModels
         public ObservableCollection<Zone> ZonesList { get; set; }
         public ObservableCollection<string> ZonesNames { get; set; }
         public Agv OnAgvSelected { get => _onAgvSelected; set => SetProperty(ref _onAgvSelected, value); }
+        public string AgvsInZone1 { get => _agvsInZone1; set => SetProperty(ref _agvsInZone1, value); }
+        public string AgvsInZone2 { get => _agvsInZone2; set => SetProperty(ref _agvsInZone2, value); }
+        public string AgvsInZone3 { get => _agvsInZone3; set => SetProperty(ref _agvsInZone3, value); }
+        public string AgvsInZone4 { get => _agvsInZone4; set => SetProperty(ref _agvsInZone4, value); }
+        public string AgvsInZone5 { get => _agvsInZone5; set => SetProperty(ref _agvsInZone5, value); }
 
         private Agv _onAgvSelected;
 
+        private string _agvsInZone1;
+        private string _agvsInZone2;
+        private string _agvsInZone3;
+        private string _agvsInZone4;
+        private string _agvsInZone5;
+
         public DashViewModel()
         {
+            AgvsInZone1 = String.Empty;
+            AgvsInZone2 = String.Empty;
+            AgvsInZone3 = String.Empty;
+            AgvsInZone4 = String.Empty;
+            AgvsInZone5 = String.Empty;
             AgvsList = new ObservableCollection<Agv>();
             ZonesList = new ObservableCollection<Zone>();
             ZonesNames = new ObservableCollection<string>();
@@ -41,8 +57,9 @@ namespace app_agv_molis.ViewModels
                 var items = await _apiAgv.GetAllItemsAsync();
                 foreach (var item in items)
                 {
-                    item.BatteryPercentageColor = SetBatteryPercentageColor(item.BatteryPercentage);
+                    item.BatteryPercentageColor = item.SetBatteryPercentageColor(item.BatteryPercentage);
                     AgvsList.Add(item);
+                    PutInTheCorrectZone(item);
                 }
             }
             catch (Exception ex)
@@ -75,7 +92,8 @@ namespace app_agv_molis.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                ZonesList.Clear();
+                await RoleHelper.RemoveAllZones();
                 MessagingCenter.Send<DashPage>(new DashPage(), "ErroAoBuscar");
             }
             finally
@@ -84,18 +102,27 @@ namespace app_agv_molis.ViewModels
             }
         }
 
-        private string SetBatteryPercentageColor(float battery)
+        private void PutInTheCorrectZone(Agv agv)
         {
-            if (battery >= 50)
+            if (agv.Location == "Zona Vermelha")
             {
-                return "#32CD32";
-            } else if (battery >= 30)
+                AgvsInZone1 += $" {agv.Name.ToUpper()}";
+            } 
+            else if (agv.Location == "Zona Roxa")
             {
-                return "#FF4500";
+                AgvsInZone2 += $" {agv.Name.ToUpper()}";
             }
-            else
+            else if (agv.Location == "Zona Azul")
             {
-                return "#FF0000";
+                AgvsInZone3 += $" {agv.Name.ToUpper()}";
+            }
+            else if (agv.Location == "Zona Verde")
+            {
+                AgvsInZone4 += $" {agv.Name.ToUpper()}";
+            }
+            else if (agv.Location == "Zona Cinza")
+            {
+                AgvsInZone5 += $" {agv.Name.ToUpper()}";
             }
         }
 

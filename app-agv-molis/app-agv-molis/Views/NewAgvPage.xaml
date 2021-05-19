@@ -7,8 +7,14 @@
             <Label Text="Nome" FontSize="Medium" />
             <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
 
-            <StackLayout Padding="0,10,0,15">
-                
+            <StackLayout Padding="0,10,0,10">
+                <Label Text="Id do Helix" FontSize="Medium" />
+                <Picker x:Name="AgvPicker" 
+                    FontSize="Large"
+                    Title="Selecione o id do Helix"
+                    ItemsSource="{Binding HelixIds}"
+                    SelectedItem="{Binding SelectedHelixId, Mode=TwoWay}"
+                />
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">

@@ -12,22 +12,12 @@ namespace app_agv_molis.ViewModels
 {
     public class AgvViewModel : BaseViewModel<Agv>
     {
-        private string _name;
-        private string _helixId;
-        private string _location;
-        private Zone[] _path;
         private Agv _selectedItem;
-        private bool _isVisible;
         private AgvApi _api = new AgvApi();
         public ObservableCollection<Agv> AgvsList { get; }
         public ObservableCollection<string> HelixIdsList { get; }        
         public Command AddAgvCommand { get; }
         public Command<Agv> AgvTapped { get; }
-        public string Name { get => _name; set => SetProperty(ref _name, value); }
-        public string HelixId { get => _helixId; set => SetProperty(ref _helixId, value); }
-        public string Location { get => _location; set => SetProperty(ref _location, value); }
-        public Zone[] Path { get => _path; set => SetProperty(ref _path, value); }
-        public bool IsVisible { get => _isVisible; set => _isVisible = value; }
         private SqliteHelper<User> _sqliteHelper;
         public AgvViewModel()
         {
@@ -36,27 +26,6 @@ namespace app_agv_molis.ViewModels
             AddAgvCommand = new Command(OnAddAgv);
             _sqliteHelper = new SqliteHelper<User>();
         }
-
-        //private async Task ShouldSeeAdminTasks()
-        //{
-        //    try
-        //    {
-        //        var currentUserId = await RoleHelper.GetUserId();
-        //        var currentUser = await _sqliteHelper.Get((user) => user.Id == currentUserId);
-        //        if (currentUser.Role == User.RoleEnum.ADMIN)
-        //        {
-        //            IsVisible = true;
-        //        }
-        //        else
-        //        {
-        //            IsVisible = false;
-        //        }
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        IsVisible = false;
-        //    }
-        //}
 
         public async Task ExecuteLoadAgvsCommand()
         {
@@ -68,6 +37,7 @@ namespace app_agv_molis.ViewModels
                 var items = await _api.GetAllItemsAsync();
                 foreach (var item in items)
                 {
+                    item.BatteryPercentageColor = item.SetBatteryPercentageColor(item.BatteryPercentage);
                     AgvsList.Add(item);
                 }
             }
@@ -114,23 +84,7 @@ namespace app_agv_molis.ViewModels
 
         private async void OnAddAgv()
         {
-            IsBusy = true;
-            try
-            {
-                await _api.AddItemAsync(new Agv(Name, HelixId, Location, Path));
-
-                MessagingCenter.Send<NewRfidPage>(new NewRfidPage(), "SucessoAoCriar");
-                await Shell.Current.GoToAsync("..");
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                MessagingCenter.Send<NewRfidPage, string>(new NewRfidPage(), "ErroAoCriar", new ErrorResponse().GetErrorMessage(ex.Message));
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            await Shell.Current.GoToAsync(nameof(NewAgvPage));
         }
 
         async void OnAgvSelected(Agv item)

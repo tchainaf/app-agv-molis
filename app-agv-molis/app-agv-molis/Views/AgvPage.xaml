@@ -7,7 +7,6 @@
     <ContentPage.ToolbarItems>
         <views:ToolbarItemBindable Text="Novo" Command="{Binding AddAgvCommand}" />
     </ContentPage.ToolbarItems>
-
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <StackLayout Orientation="Vertical">
             <ListView x:Name="listView" 

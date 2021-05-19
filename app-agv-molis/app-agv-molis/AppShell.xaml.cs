@@ -35,9 +35,8 @@ namespace app_agv_molis
                 var userFromDB = await _sqliteHelper.Get((item) => item.Id == userId);
                 if (userFromDB != null)
                 {
-
                     await RoleHelper.SetUserName(userFromDB.Name);
-                    await RoleHelper.SetUserRole(userFromDB.Role.ToString());
+                    await RoleHelper.SetUserEmail(userFromDB.Email.ToString());
                 }
             }
             catch (Exception ex)
@@ -51,8 +50,9 @@ namespace app_agv_molis
             var userId = await RoleHelper.GetUserId();
             RoleHelper.RemoveToken();
             RoleHelper.RemoveUserId();
-            RoleHelper.RemoveUserRole();
+            RoleHelper.RemoveUserEmail();
             RoleHelper.RemoveUserName();
+            await RoleHelper.RemoveAllZones() ;
             await _sqliteHelper.Delete((u) => u.Id == userId);
             await Shell.Current.GoToAsync("//LoginPage");
         }

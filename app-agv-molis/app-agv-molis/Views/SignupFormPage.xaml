@@ -4,7 +4,7 @@
     Title="Cadastro"
     Shell.NavBarIsVisible="False"
     x:Class="app_agv_molis.Views.SignupFormPage">
-    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
         <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Padding="15">
             <Label Text="Nome" FontSize="Medium" />
             <Entry Text="{Binding Nome, Mode=TwoWay}" FontSize="Medium" Keyboard="Text" />
@@ -17,16 +17,6 @@
 
             <Label Text="Departamento" FontSize="Medium" />
             <Entry Text="{Binding Departamento, Mode=TwoWay}" FontSize="Medium" Keyboard="Text" />
-
-            <!--<StackLayout Padding="0,10,0,10">
-                <Label Text="Tipo de usuário" FontSize="Medium" />
-                <Picker x:Name="TiposUsuarioPicker" 
-                    FontSize="Large"
-                    Title="Selecione o tipo de usuário"
-                    ItemsSource="{Binding Tipos}"
-                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                />
-            </StackLayout>-->
 
             <StackLayout Padding="0,10,0,15">
             </StackLayout>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace app_agv_molis.Services
 {
-    public class RfidApi : IHttpApi<Rfid>, IHelix<Rfid>
+    public class RfidApi : IHttpApi<Rfid>
     {
         public async Task<Rfid> AddItemAsync(Rfid item)
         {
@@ -60,17 +60,6 @@ namespace app_agv_molis.Services
         Task<HttpResponseMessage> IHttpApi<Rfid>.UpdateItemAsync(Rfid item)
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<string>> GetAllFromHelixAsync()
-        {
-            try
-            {
-                return await HttpHelper.GetAllAsync<string>("/rfid/helix");
-            } catch(Exception ex)
-            {
-                throw ex;
-            }
         }
     }
 }

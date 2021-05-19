@@ -4,7 +4,7 @@
              x:Class="app_agv_molis.Views.LoginPage"
              Shell.NavBarIsVisible="False"
 >
-    <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+    <StackLayout Padding="10,0,10,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
         <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
             <Image Source="logo_agv_molis.png" Aspect="AspectFit" />
         </ContentView>

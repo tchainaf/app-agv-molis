@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace app_agv_molis.Helpers
@@ -17,9 +18,9 @@ namespace app_agv_molis.Helpers
         {
             return await SecureStorage.GetAsync("userName");
         }
-        public async static Task<string> GetUserRole()
+        public async static Task<string> GetUserEmail()
         {
-            return await SecureStorage.GetAsync("userRole");
+            return await SecureStorage.GetAsync("userEmail");
         }
         public async static Task SetToken(string token)
         {
@@ -33,9 +34,9 @@ namespace app_agv_molis.Helpers
         {
             await SecureStorage.SetAsync("userName", name);
         }
-        public async static Task SetUserRole(string role)
+        public async static Task SetUserEmail(string role)
         {
-            await SecureStorage.SetAsync("userRole", role);
+            await SecureStorage.SetAsync("userEmail", role);
         }
         public static void RemoveToken()
         {
@@ -45,13 +46,24 @@ namespace app_agv_molis.Helpers
         {
             SecureStorage.Remove("userName");
         }
-        public static void RemoveUserRole()
+        public static void RemoveUserEmail()
         {
-            SecureStorage.Remove("userRole");
+            SecureStorage.Remove("userEmail");
         }
         public static void RemoveUserId()
         {
             SecureStorage.Remove("userId");
+        }
+
+        public static async Task RemoveAllZones()
+        {
+            var length = await SecureStorage.GetAsync("zone-length");
+            for (var i = 1; i < Int32.Parse(length); i++)
+            {
+                SecureStorage.Remove($"zone-{i}");
+            }
+
+            SecureStorage.Remove("zone-length");
         }
     }
 }
