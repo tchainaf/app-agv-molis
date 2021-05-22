@@ -50,9 +50,21 @@
               "target": "Package",
               "version": "[1.4.1.1, )"
             },
+            "Plugin.PushNotification": {
+              "target": "Package",
+              "version": "[3.6.9, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.6.1, )"
+            },
+            "Xamarin.Firebase.Common": {
+              "target": "Package",
+              "version": "[119.5.0, )"
+            },
+            "Xamarin.Firebase.Messaging": {
+              "target": "Package",
+              "version": "[121.0.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
@@ -61,6 +73,14 @@
             "Xamarin.Forms.InputKit": {
               "target": "Package",
               "version": "[3.5.0, )"
+            },
+            "Xamarin.Google.Dagger": {
+              "target": "Package",
+              "version": "[2.27.0, )"
+            },
+            "Xamarin.GooglePlayServices.Base": {
+              "target": "Package",
+              "version": "[117.6.0, )"
             }
           }
         }

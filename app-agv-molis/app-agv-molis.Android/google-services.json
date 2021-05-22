@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "177654483419",
+    "project_id": "app-agv-molis",
+    "storage_bucket": "app-agv-molis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177654483419:android:27d47d2d350743c564fffe",
+        "android_client_info": {
+          "package_name": "com.companyname.app_agv_molis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177654483419-gfh8f10eg0ej8nmcqi6jv5rkhfir70ap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.app_agv_molis",
+            "certificate_hash": "2749b944a031219e74e0450c782642110ce4dcc2"
+          }
+        },
+        {
+          "client_id": "177654483419-9ia501ststh9usicbk7pfarjbc8fe86c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFF4XmXQBxaNwLU1ymrjbfhPNOgtHfjT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177654483419-9ia501ststh9usicbk7pfarjbc8fe86c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

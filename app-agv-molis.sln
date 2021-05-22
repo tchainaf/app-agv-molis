@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app-agv-molis.Android", "ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app-agv-molis.iOS", "app-agv-molis\app-agv-molis.iOS\app-agv-molis.iOS.csproj", "{3C28BA99-13C8-440B-9882-7D134C4D0D64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app-agv-molis", "app-agv-molis\app-agv-molis\app-agv-molis.csproj", "{D68C8244-5C1B-4460-AE47-834393ED7469}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app-agv-molis", "app-agv-molis\app-agv-molis\app-agv-molis.csproj", "{D68C8244-5C1B-4460-AE47-834393ED7469}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{55587739-9C8C-4883-B07E-73D7F5366AFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
