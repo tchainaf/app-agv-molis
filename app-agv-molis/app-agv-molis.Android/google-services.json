@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:177654483419:android:27d47d2d350743c564fffe",
         "android_client_info": {
-          "package_name": "com.companyname.app_agv_molis"
+          "package_name": "com.companyname.app_agv_molis_2"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "177654483419-gfh8f10eg0ej8nmcqi6jv5rkhfir70ap.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.companyname.app_agv_molis",
+            "package_name": "com.companyname.app_agv_molis_2",
             "certificate_hash": "2749b944a031219e74e0450c782642110ce4dcc2"
           }
         },

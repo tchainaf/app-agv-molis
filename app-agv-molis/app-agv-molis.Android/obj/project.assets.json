@@ -3330,6 +3330,7 @@
       "Xamarin.Forms.InputKit >= 3.5.0",
       "Xamarin.Google.Dagger >= 2.27.0",
       "Xamarin.GooglePlayServices.Base >= 117.6.0",
+      "Xamarin.GooglePlayServices.Basement >= 117.6.0",
       "app-agv-molis >= 1.0.0"
     ]
   },
@@ -3412,6 +3413,10 @@
             "version": "[2.27.0, )"
           },
           "Xamarin.GooglePlayServices.Base": {
+            "target": "Package",
+            "version": "[117.6.0, )"
+          },
+          "Xamarin.GooglePlayServices.Basement": {
             "target": "Package",
             "version": "[117.6.0, )"
           }

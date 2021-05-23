@@ -55,3 +55,4 @@ D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\app-agv-molis.dll
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\ref\app-agv-molis.dll
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\app-agv-molis.pdb
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis\obj\Debug\netstandard2.0\app-agv-molis.csprojAssemblyReference.cache

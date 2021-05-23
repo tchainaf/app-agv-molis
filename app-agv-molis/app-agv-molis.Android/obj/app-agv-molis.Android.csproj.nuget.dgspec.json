@@ -81,6 +81,10 @@
             "Xamarin.GooglePlayServices.Base": {
               "target": "Package",
               "version": "[117.6.0, )"
+            },
+            "Xamarin.GooglePlayServices.Basement": {
+              "target": "Package",
+              "version": "[117.6.0, )"
             }
           }
         }

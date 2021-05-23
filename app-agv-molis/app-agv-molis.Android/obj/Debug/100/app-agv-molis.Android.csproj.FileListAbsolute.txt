@@ -1101,14 +1101,12 @@ D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64720bb2db43a66fe9\ViewRenderer_2.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc6495d4f5d63cc5c882\AwaitableTaskCompleteListener_1.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64a0e0a82d0db9a07d\ActivityLifecycleContextListener.java
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64ba6a250155f358e7\NotificationService.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dbf290ea7e69bd26\AutoCompleteViewRenderer.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dbf290ea7e69bd26\BoxArrayAdapter.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dbf290ea7e69bd26\CustomFilter.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dbf290ea7e69bd26\EmptyEntryRenderer.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dbf290ea7e69bd26\NewIconViewRenderer.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dbf290ea7e69bd26\StatefulStackLayoutRenderer.java
-D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dd3b2b93d0d843e9\FirebaseInstanceService.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dd3b2b93d0d843e9\MainActivity.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64ee486da937c010f4\ButtonRenderer.java
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64ee486da937c010f4\FrameRenderer.java
@@ -1169,3 +1167,6 @@ D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\stamp\_GenerateJavaStubs.stamp
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\stamp\_GeneratePackageManagerJava.stamp
 D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\stamp\_ResolveLibraryProjectImports.stamp
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dd3b2b93d0d843e9\PushNotificationService.java
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\mono\com\google\android\gms\common\api\PendingResult_StatusListenerImplementor.java
+D:\Arquivos\Dev\app-agv-molis\app-agv-molis\app-agv-molis.Android\obj\Debug\100\android\src\crc64dd3b2b93d0d843e9\PushNotificationTokenService.java
