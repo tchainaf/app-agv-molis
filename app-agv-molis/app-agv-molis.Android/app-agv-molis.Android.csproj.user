@@ -4,6 +4,6 @@
     <SelectedDevice>Xiaomi Mi A2</SelectedDevice>
     <ActiveDebugProfile>Xiaomi Mi A2</ActiveDebugProfile>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
-    <DefaultDevice>pixel_2</DefaultDevice>
+    <DefaultDevice>pixel_2_pie_9_0_-_api_28</DefaultDevice>
   </PropertyGroup>
 </Project>

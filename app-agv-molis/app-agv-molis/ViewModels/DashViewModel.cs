@@ -50,7 +50,11 @@ namespace app_agv_molis.ViewModels
         public async Task ExecuteLoadAgvsCommand()
         {
             IsBusy = true;
-
+            AgvsInZone1 = String.Empty;
+            AgvsInZone2 = String.Empty;
+            AgvsInZone3 = String.Empty;
+            AgvsInZone4 = String.Empty;
+            AgvsInZone5 = String.Empty;
             try
             {
                 AgvsList.Clear();
@@ -68,7 +72,7 @@ namespace app_agv_molis.ViewModels
                 MessagingCenter.Send<DashPage>(new DashPage(), "ErroAoBuscar");
             }
             finally
-            {
+            {   
                 IsBusy = false;
             }
         }
@@ -76,7 +80,11 @@ namespace app_agv_molis.ViewModels
         public async Task ExecuteLoadZonesCommand()
         {
             IsBusy = true;
-
+            AgvsInZone1 = String.Empty;
+            AgvsInZone2 = String.Empty;
+            AgvsInZone3 = String.Empty;
+            AgvsInZone4 = String.Empty;
+            AgvsInZone5 = String.Empty;
             try
             {
                 ZonesList.Clear();
@@ -106,29 +114,34 @@ namespace app_agv_molis.ViewModels
         {
             if (agv.Location == "Zona Vermelha")
             {
-                AgvsInZone1 += $" {agv.Name.ToUpper()}";
+                AgvsInZone1 += $" | {agv.Name.ToUpper()}";
             } 
             else if (agv.Location == "Zona Roxa")
             {
-                AgvsInZone2 += $" {agv.Name.ToUpper()}";
+                AgvsInZone2 += $" | {agv.Name.ToUpper()}";
             }
             else if (agv.Location == "Zona Azul")
             {
-                AgvsInZone3 += $" {agv.Name.ToUpper()}";
+                AgvsInZone3 += $" | {agv.Name.ToUpper()}";
             }
             else if (agv.Location == "Zona Verde")
             {
-                AgvsInZone4 += $" {agv.Name.ToUpper()}";
+                AgvsInZone4 += $" | {agv.Name.ToUpper()}";
             }
             else if (agv.Location == "Zona Cinza")
             {
-                AgvsInZone5 += $" {agv.Name.ToUpper()}";
+                AgvsInZone5 += $" | {agv.Name.ToUpper()}";
             }
         }
 
         public void OnAppearing()
         {
             IsBusy = true;
+            AgvsInZone1 = String.Empty;
+            AgvsInZone2 = String.Empty;
+            AgvsInZone3 = String.Empty;
+            AgvsInZone4 = String.Empty;
+            AgvsInZone5 = String.Empty;
         }
     }
 }

@@ -30,7 +30,7 @@
                 Grid.Column="1"
                 FontSize="Medium"
                 FontAttributes="Bold"
-                Text="{Binding AgvsInZone1}"
+                Text="{Binding zone1}"
                 HorizontalOptions="Center"
                 VerticalOptions="Center" />
 

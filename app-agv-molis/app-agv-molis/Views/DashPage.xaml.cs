@@ -1,6 +1,5 @@
 ﻿using app_agv_molis.ViewModels;
-using System;
-using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace app_agv_molis.Views
@@ -12,18 +11,26 @@ namespace app_agv_molis.Views
         {
             InitializeComponent();
             this.BindingContext = _viewModel = new DashViewModel();
-            MessagingCenter.Subscribe<NewRfidPage>(this, "ErroAoBuscar", (sender) =>
+            Title = "Mapa";
+            MessagingCenter.Subscribe<DashPage>(this, "ErroAoBuscar", (sender) =>
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await DisplayAlert("Deu ruim", "Erro ao buscar os agvs", "OK");
                 });
             });
+            MessagingCenter.Subscribe<DashPage>(this, "Reload", (sender) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    OnAppearing();
+                });
+            });
         }
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
+            base.OnAppearing(); 
             _viewModel.OnAppearing();
             await _viewModel.ExecuteLoadAgvsCommand();
         }
